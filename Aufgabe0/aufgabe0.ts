@@ -12,8 +12,8 @@ nicht kopiert und auch nicht diktiert.
 document.addEventListener('DOMContentLoaded', function () {
     
        
-    var getName = prompt("Huhu! Wie hei√üt du?");
-    document.getElementById("Hello").innerHTML = "Hallo " + getName + "! Ich danke f√ºr deinen Besuch :)";
+    var getName:string = prompt("Huhu! Wie heiﬂt du?");
+    document.getElementById("Hello").innerHTML = "Hallo " + getName + "! Ich danke f¸r deinen Besuch :)";
    
     
     ;})

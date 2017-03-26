@@ -9,8 +9,8 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 document.addEventListener('DOMContentLoaded', function () {
-    var getName = prompt("Huhu! Wie heißt du?");
-    document.getElementById("Hello").innerHTML = "Hallo " + getName + "! Ich danke für deinen Besuch :)";
+    var getName = prompt("Huhu! Wie hei�t du?");
+    document.getElementById("Hello").innerHTML = "Hallo " + getName + "! Ich danke f�r deinen Besuch :)";
     ;
 });
 //# sourceMappingURL=aufgabe0.js.map
