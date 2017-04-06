@@ -16,16 +16,26 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let n: number = 64;
     let koerner: number = 1;
+    koerner = koerner * 2;
     let bc: string;
     let c: string;
-    let reihe: number = 1;
-    let div: any = document.getElementsByTagName("div");
+    let line: number = 0;
+    let divs: any = document.getElementsByTagName("div");
     
     
     console.log("test1");
     
     for (let i: number = 0; i < n; i++) {
-                                                          
+                                               
+        
+        
+            if (i % 8 == 0) {
+//                divs[i].float = "clear both"; 
+              line++;
+             console.log("test9");
+               
+                };
+        
                                     /* Farbe */
         if (i % 2 == 0 ) { 
         bc = "#ffffff";
@@ -39,30 +49,26 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("test2");
         
         placeDiv() ;    console.log("test3");
-        placeKoerner();  console.log("test4");
+
+       
+        console.log("test4");
         
                                     /* Reihenumbruch/Farbwechsel */
         
             if (i % 2 == 0) {
-                div.float = "right";
+                divs[i].float = "right";
                 }
         
             else {
-                div.float = "left";
+                divs[i].float = "left";
                  }
         
        
         
-            if (i % 8 == 0) {
-                div.float = "clear both"; 
-               let br: any = document.createElement("br");
-             console.log("test9");
-               
-                };
+           
         
         
-                                    /* Körner */
-          
+                                   
                  
 }
     
@@ -71,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(div);
    let s: CSSStyleDeclaration = div.style;
   
+        
+    div.innerText = "" + koerner;
+        
     s.display = "inline-block";
     s.backgroundColor = bc;
     s.color = c;    
@@ -80,10 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
 };
    
-    function placeKoerner() {
-       div.innerText = koerner;
-        };
     
+              
     
 
     });        
