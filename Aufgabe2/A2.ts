@@ -9,9 +9,6 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
-
-/*Entschuldigung, den Code werde ich nochmals überarbeiten. Ist etwas durcheinander und chaotisch geworden. Auch funktioniert nicht alles. */
-
 document.addEventListener("DOMContentLoaded", function(): void {
 
     let n: number = 64;
@@ -50,8 +47,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
         }
 
         
-         /* Körner */
-        
+         /* Kï¿½rner */
         
         div.innerText = " " + koernerSum;
             koerner = koerner * 2;

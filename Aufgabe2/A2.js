@@ -8,7 +8,6 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-/*Entschuldigung, den Code werde ich nochmals �berarbeiten. Ist etwas durcheinander und chaotisch geworden. Auch funktioniert nicht alles. */
 document.addEventListener("DOMContentLoaded", function () {
     let n = 64;
     let bc;
