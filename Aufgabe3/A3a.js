@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         /* Farbe */
         if (((i + line) % 2) == 0) {
-            div[i].className = "white";
+            c = "white";
         }
         else {
-            div[i].className = "black";
+            c = "black";
         }
         /* K�rner */
         div.innerText = " " + koernerSum;
@@ -50,17 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
         //            for (let z: number = 0; z < 9;z++) {
         //                div.addEventListener("click", function() : void {
         //                    div.className = "selected";
-        //                    }
-        //                    
-        //                    )};
+        //                       
         function placeDiv() {
             let div = document.createElement("div");
             document.body.appendChild(div);
             let s = div.style;
             div.innerText = "" + koerner;
             s.display = "inline-block";
-            s.width = "100px";
-            s.height = "100px";
+            s.width = "150px";
+            s.height = "150px";
+            div.className = c;
         }
     }
 });

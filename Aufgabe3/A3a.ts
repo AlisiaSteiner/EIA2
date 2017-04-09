@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
         /* Farbe */
         if (((i + line) % 2) == 0) {
-            div[i].className = "white";
+            c = "white";
         }
         else {
-            div[i].className = "black";
+            c = "black";
         }
 
 
@@ -65,18 +65,14 @@ document.addEventListener("DOMContentLoaded", function(): void {
             console.log("test9");
 
         }
-            
-                /* 3a : Toggle +  Farbänderung */
-//        
-//            for (let z: number = 0; z < 9;z++) {
-//                div.addEventListener("click", function() : void {
-//                    div.className = "selected";
-//                    }
-//                    
-//                    )};
-        
 
-                
+        /* 3a : Toggle +  Farbänderung */
+        //        
+        //            for (let z: number = 0; z < 9;z++) {
+        //                div.addEventListener("click", function() : void {
+        //                    div.className = "selected";
+        //                       
+
         
         function placeDiv(): void {
             let div: HTMLDivElement = document.createElement("div");
@@ -87,10 +83,9 @@ document.addEventListener("DOMContentLoaded", function(): void {
             div.innerText = "" + koerner;
 
             s.display = "inline-block";
-            s.width = "100px";
-            s.height = "100px";
-
-
+            s.width = "150px";
+            s.height = "150px";
+            div.className = c;
         }
 
 

@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function(): void {
             s.display = "inline-block";
             s.backgroundColor = bc;
             s.color = c;
-            s.width = "100px";
-            s.height = "100px";
+            s.width = "150px";
+            s.height = "150px";
 
 
         }
