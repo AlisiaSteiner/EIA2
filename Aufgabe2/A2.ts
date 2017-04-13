@@ -25,48 +25,58 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     for (let i: number = 0; i < n; i++) {
 
-        placeDiv();
 
-        if (i % 8 == 0) {
-            div[i].float = "clear both";
-            let br: HTMLElement = document.createElement("br");
-            document.body.appendChild(br);
 
-            console.log("test9");
 
-        }
-
-        /* Farbe */
-        if (((i + line) % 2) == 0) {
-            bc = "#ffffff";
-            c = "#000000";
-        }
-        else {
-            bc = "#000000";
-            c = "#ffffff";
-        }
-
-        
-         /* K�rner */
-        
-        div.innerText = " " + koernerSum;
-            koerner = koerner * 2;
-        
-        
         /* Reihenumbruch/Farbwechsel */
 
         if (((i + 1) % 8) == 0) {
             line++;
         }
-               
+
         if (i % 8 == 0) {
-            div[i].float = "clear both";
+            //            div[i].float = "clear both";
             let br: HTMLElement = document.createElement("br");
-            
+
 
             console.log("test9");
-            
+
         }
+
+placeDiv();
+
+        /* Farbe */
+        if (line % 2 == 0) {
+            if (i % 2 == 0) {
+
+                bc = "#ffffff";
+                c = "#000000";
+            }
+            else {
+                bc = "#000000";
+                c = "#ffffff";
+            }
+        }
+        else {
+            if (i % 2 == 0) {
+
+                bc = "#000000";
+                c = "#ffffff";
+
+            }
+            else {
+                bc = "#ffffff";
+                c = "#000000";
+
+            }
+        }
+
+
+        /* K�rner */
+        div.innerText = " " + koernerSum;
+        koerner = koerner * 2;
+
+        
 
 
         function placeDiv(): void {
@@ -84,14 +94,13 @@ document.addEventListener("DOMContentLoaded", function(): void {
             s.height = "150px";
 
 
-        }
+        };
+
+    }
+
+});
 
 
-
-}
-
-    
-    });
 
 
 
