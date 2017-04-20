@@ -10,8 +10,9 @@ nicht kopiert und auch nicht diktiert.
 
 Dieser Code wurde in Zusammenarbeit mit Ina Radzuweit und Annkathrin Müller erstellt.
 */
-document.addEventListener("DOMContentLoaded", function () {
-    var cards = ["Karo 7",
+var Aufgabe3;
+(function (Aufgabe3) {
+    let cards = ["Karo 7",
         "Karo 8",
         "Karo 9",
         "Karo 10",
@@ -44,45 +45,43 @@ document.addEventListener("DOMContentLoaded", function () {
         "Pik König",
         "Pik As"
     ];
-    /*Aktivität 1 : Click on Deck("Take") --> get max 5 Cards on Hand */
-    let take = document.getElementById("take");
-    take.addEventListener("click", function () {
-        /*Place Div/Card - Random Card selected in function "placeCardToHand" IF Element "Hand" does not contain more than 4.*/
-        let cardsOnHand = document.getElementById("hand").childElementCount;
-        if (cardsOnHand < 5) {
-            placeCardToHand();
-        }
-    });
+    document.addEventListener("DOMContentLoaded", init);
+    function init() {
+        /*Aktivität 1 : Click on Deck("Take") --> get max 5 Cards on Hand */
+        let take = document.getElementById("take");
+        take.addEventListener("click", placeCardToHand);
+    }
     /* Funktion zur Platzierung der Karten-Divs im Hand-Div */
     function placeCardToHand() {
-        let div = document.createElement("div");
-        document.getElementById("hand").appendChild(div);
-        let s = div.style;
-        /* Random Card */
-        let n = Math.round(Math.random() * cards.length);
-        while (cards[n] == undefined) {
-            Math.round(Math.random() * cards.length);
+        let handDiv = document.getElementById("hand");
+        if (handDiv.childElementCount < 5) {
+            let div = document.createElement("div");
+            document.getElementById("hand").appendChild(div);
+            let s = div.style;
+            /* Random Card */
+            let n = Math.round(Math.random() * (cards.length - 1));
+            if (cards[n] == undefined) {
+                Math.round(Math.random() * cards.length - 1);
+            }
+            //        let cardValue: string = cards[n];
+            div.innerText = cards[n];
+            s.border = "solid black";
+            s.display = "inline-block";
+            s.width = "200px";
+            s.height = "250px";
+            div.className = "cardsDrawn";
+            console.log(cards[n]);
+            console.log(cards.length);
+            cards.splice(n, 1);
+            div.addEventListener("click", dropCard);
         }
-        //        let cardValue: string = cards[n];
-        div.innerText = cards[n];
-        s.border = "solid black";
-        s.display = "inline-block";
-        s.width = "200px";
-        s.height = "250px";
-        div.className = "cardsDrawn";
-        console.log(cards[n]);
-        console.log(cards.length);
-        cards.splice(n, 1);
-        /* Aktivität 2: Drop card from "Hand" to "Drop"-Deck - Show how many cards in "Drop"-Deck */
-        /* Add Listener for dropping cards */
-        div.addEventListener("click", function () {
-            let cardsDropped = [""];
-            let cardValue = div.innerText;
-            let amountOfDroppedCards = cardsDropped.push(cardValue);
-            document.getElementById("drop").innerText = cardValue;
-            /* "Delete" Card from hand */
-            div.parentNode.removeChild(div);
-        });
     }
-});
+    function dropCard(_event) {
+        let target = _event.target;
+        let cardValue = target.innerText;
+        document.getElementById("drop").innerText = cardValue;
+        /* "Delete" Card from hand */
+        target.parentNode.removeChild(target);
+    }
+})(Aufgabe3 || (Aufgabe3 = {}));
 //# sourceMappingURL=A3.js.map

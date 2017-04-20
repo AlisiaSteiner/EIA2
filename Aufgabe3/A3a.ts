@@ -25,30 +25,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
     for (let i: number = 0; i < n; i++) {
 
-        placeDiv();
 
-        if (i % 8 == 0) {
-            div[i].float = "clear both";
-            let br: HTMLElement = document.createElement("br");
-            document.body.appendChild(br);
-
-            console.log("test9");
-
-        }
-
-        /* Farbe */
-        if (((i + line) % 2) == 0) {
-            c = "white";
-        }
-        else {
-            c = "black";
-        }
-
-
-        /* K�rner */
-
-        div.innerText = " " + koernerSum;
-        koerner = koerner * 2;
 
 
         /* Reihenumbruch/Farbwechsel */
@@ -58,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
         }
 
         if (i % 8 == 0) {
-            div[i].float = "clear both";
+            //            div[i].float = "clear both";
             let br: HTMLElement = document.createElement("br");
 
 
@@ -66,14 +43,53 @@ document.addEventListener("DOMContentLoaded", function(): void {
 
         }
 
-        /* 3a : Toggle +  Farbänderung */
-        //        
-        //            for (let z: number = 0; z < 9;z++) {
-        //                div.addEventListener("click", function() : void {
-        //                    div.className = "selected";
-        //                       
+        placeDiv();
 
-        
+        /* Farbe */
+        if (line % 2 == 0) {
+            if (i % 2 == 0) {
+
+                bc = "#ffffff";
+                c = "#000000";
+            }
+            else {
+                bc = "#000000";
+                c = "#ffffff";
+            }
+        }
+        else {
+            if (i % 2 == 0) {
+
+                bc = "#000000";
+                c = "#ffffff";
+
+            }
+            else {
+                bc = "#ffffff";
+                c = "#000000";
+
+            }
+        }
+
+
+        /* K�rner */
+        div.innerText = " " + koernerSum;
+        koerner = koerner * 2;
+}
+    
+    
+      /* 3a : Toggle +  Farbänderung */
+
+    for (let z: number = 0; z < 8; z++) {
+        div[i].addEventListener("click", select() {
+            div.className = "selected"
+        });
+    };
+
+
+
+
+
         function placeDiv(): void {
             let div: HTMLDivElement = document.createElement("div");
             document.body.appendChild(div);
@@ -83,20 +99,16 @@ document.addEventListener("DOMContentLoaded", function(): void {
             div.innerText = "" + koerner;
 
             s.display = "inline-block";
+            s.backgroundColor = bc;
+            s.color = c;
             s.width = "150px";
             s.height = "150px";
-            div.className = c;
-        }
 
 
-
-    }
+        };
 
 
 });
 
-
-
-///////////////////////////////////////////
 
 

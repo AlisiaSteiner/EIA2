@@ -11,6 +11,8 @@ var Aufgabe4;
         drawBigMountain();
         drawLittleMountain(50, 250);
         drawLittleMountain(500, 250);
+        drawSun();
+        drawSunflower(200, 375);
     }
     function drawSky() {
         crc2.beginPath();
@@ -34,7 +36,7 @@ var Aufgabe4;
     }
     function drawLittleMountain(x, y) {
         crc2.beginPath();
-        moveTo(x, y);
+        crc2.moveTo(x, y);
         crc2.lineTo(x + 50, y - 100);
         crc2.lineTo(x + 100, y);
         crc2.lineTo(x, y);
@@ -47,7 +49,7 @@ var Aufgabe4;
     }
     function drawBigMountain() {
         crc2.beginPath();
-        moveTo(100, 250);
+        crc2.moveTo(100, 250);
         crc2.lineTo(270, 50);
         crc2.lineTo(320, 250);
         crc2.lineTo(100, 250);
@@ -57,6 +59,34 @@ var Aufgabe4;
         gradient.addColorStop(1, "#737373");
         crc2.fillStyle = gradient;
         crc2.fill();
+    }
+    function drawSun() {
+        crc2.beginPath();
+        crc2.arc(650, 60, 50, 0, 2 * Math.PI);
+        crc2.closePath();
+        let gradient = crc2.createRadialGradient(650, 60, 10, 650, 60, 100);
+        gradient.addColorStop(0, "#ffff00");
+        gradient.addColorStop(1, "white");
+        crc2.fillStyle = gradient;
+        crc2.fill();
+    }
+    function drawSunflower(x, y) {
+        /* Stängel */
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x, y - 30);
+        crc2.closePath();
+        crc2.strokeStyle = "#008000";
+        crc2.stroke();
+        /*Blüte*/
+        crc2.beginPath();
+        crc2.arc(x, y - 35, 8, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fillStyle = "#804000";
+        crc2.fill();
+        crc2.beginPath();
+        crc2.moveTo(x, y - 27);
+        crc2.arc;
     }
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=A4.js.map

@@ -11,9 +11,8 @@ nicht kopiert und auch nicht diktiert.
 Dieser Code wurde in Zusammenarbeit mit Ina Radzuweit und Annkathrin Müller erstellt.
 */
 
-document.addEventListener("DOMContentLoaded", function(): void {
-
-    var cards: string[] = ["Karo 7",
+namespace Aufgabe3 {
+    let cards: string[] = ["Karo 7",
         "Karo 8",
         "Karo 9",
         "Karo 10",
@@ -47,78 +46,59 @@ document.addEventListener("DOMContentLoaded", function(): void {
         "Pik As"
     ];
 
-    /*Aktivität 1 : Click on Deck("Take") --> get max 5 Cards on Hand */
 
-    
-    
-    let take: HTMLElement = document.getElementById("take");
-    take.addEventListener("click", function(): void {
+    document.addEventListener("DOMContentLoaded", init);
 
-        /*Place Div/Card - Random Card selected in function "placeCardToHand" IF Element "Hand" does not contain more than 4.*/
-
-        let cardsOnHand: number = document.getElementById("hand").childElementCount;
-        
-        if (cardsOnHand < 5) {
-            placeCardToHand();
-        }
-
-
-
-
-    });
-
-
+    function init(): void {
+        /*Aktivität 1 : Click on Deck("Take") --> get max 5 Cards on Hand */
+        let take: HTMLElement = document.getElementById("take");
+        take.addEventListener("click", placeCardToHand);
+    }
 
     /* Funktion zur Platzierung der Karten-Divs im Hand-Div */
 
     function placeCardToHand(): void {
-        let div: HTMLDivElement = document.createElement("div");
-        document.getElementById("hand").appendChild(div);
-        let s: CSSStyleDeclaration = div.style;
-        /* Random Card */
-        let n: number = Math.round(Math.random() * cards.length);
-        while ( cards[n] == undefined) {
-            Math.round(Math.random() * cards.length);
+        
+        let handDiv: HTMLElement = document.getElementById("hand");
+        if (handDiv.childElementCount < 5) {
+            let div: HTMLDivElement = document.createElement("div");
+            document.getElementById("hand").appendChild(div);
+            let s: CSSStyleDeclaration = div.style;
+            /* Random Card */
+            let n: number = Math.round(Math.random() * (cards.length - 1));
+            if (cards[n] == undefined) {
+                Math.round(Math.random() * cards.length - 1);
+            }
+
+
+
+            //        let cardValue: string = cards[n];
+            div.innerText = cards[n];
+
+            s.border = "solid black";
+            s.display = "inline-block";
+            s.width = "200px";
+            s.height = "250px";
+
+            div.className = "cardsDrawn";
+
+            console.log(cards[n]); console.log(cards.length);
+            cards.splice(n, 1);
+
+
+            div.addEventListener("click", dropCard);
         }
-        
-
-
-        //        let cardValue: string = cards[n];
-        div.innerText = cards[n];
-
-        s.border = "solid black";
-        s.display = "inline-block";
-        s.width = "200px";
-        s.height = "250px";
-
-        div.className = "cardsDrawn";
-
-        console.log(cards[n]); console.log(cards.length);
-        cards.splice(n, 1);
-
-
-
-        /* Aktivität 2: Drop card from "Hand" to "Drop"-Deck - Show how many cards in "Drop"-Deck */
-
-        /* Add Listener for dropping cards */
-        
-        div.addEventListener("click", function(): void {
-            let cardsDropped: string[] = [""];
-
-            let cardValue: string = div.innerText;
-            let amountOfDroppedCards: number = cardsDropped.push(cardValue);
-
-            document.getElementById("drop").innerText = cardValue;
-
-
-            /* "Delete" Card from hand */
-            div.parentNode.removeChild(div);
-
-        });
-
     }
 
+    function dropCard(_event: MouseEvent): void {
+        let target: HTMLElement = <HTMLElement>_event.target;
+        let cardValue: string = target.innerText;
 
-});
+        document.getElementById("drop").innerText = cardValue;
 
 
+        /* "Delete" Card from hand */
+        target.parentNode.removeChild(target);
+
+    }
+}

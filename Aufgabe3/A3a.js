@@ -19,49 +19,59 @@ document.addEventListener("DOMContentLoaded", function () {
     let div = document.getElementsByTagName("div");
     console.log("test1");
     for (let i = 0; i < n; i++) {
-        placeDiv();
-        if (i % 8 == 0) {
-            div[i].float = "clear both";
-            let br = document.createElement("br");
-            document.body.appendChild(br);
-            console.log("test9");
-        }
-        /* Farbe */
-        if (((i + line) % 2) == 0) {
-            c = "white";
-        }
-        else {
-            c = "black";
-        }
-        /* K�rner */
-        div.innerText = " " + koernerSum;
-        koerner = koerner * 2;
         /* Reihenumbruch/Farbwechsel */
         if (((i + 1) % 8) == 0) {
             line++;
         }
         if (i % 8 == 0) {
-            div[i].float = "clear both";
+            //            div[i].float = "clear both";
             let br = document.createElement("br");
             console.log("test9");
         }
-        /* 3a : Toggle +  Farbänderung */
-        //        
-        //            for (let z: number = 0; z < 9;z++) {
-        //                div.addEventListener("click", function() : void {
-        //                    div.className = "selected";
-        //                       
-        function placeDiv() {
-            let div = document.createElement("div");
-            document.body.appendChild(div);
-            let s = div.style;
-            div.innerText = "" + koerner;
-            s.display = "inline-block";
-            s.width = "150px";
-            s.height = "150px";
-            div.className = c;
+        placeDiv();
+        /* Farbe */
+        if (line % 2 == 0) {
+            if (i % 2 == 0) {
+                bc = "#ffffff";
+                c = "#000000";
+            }
+            else {
+                bc = "#000000";
+                c = "#ffffff";
+            }
         }
+        else {
+            if (i % 2 == 0) {
+                bc = "#000000";
+                c = "#ffffff";
+            }
+            else {
+                bc = "#ffffff";
+                c = "#000000";
+            }
+        }
+        /* K�rner */
+        div.innerText = " " + koernerSum;
+        koerner = koerner * 2;
     }
+    /* 3a : Toggle +  Farbänderung */
+    for (let z = 0; z < 8; z++) {
+        div.addEventListener("click", function () {
+            div.className = "selected";
+        });
+    }
+    ;
+    function placeDiv() {
+        let div = document.createElement("div");
+        document.body.appendChild(div);
+        let s = div.style;
+        div.innerText = "" + koerner;
+        s.display = "inline-block";
+        s.backgroundColor = bc;
+        s.color = c;
+        s.width = "150px";
+        s.height = "150px";
+    }
+    ;
 });
-///////////////////////////////////////////
 //# sourceMappingURL=A3a.js.map
