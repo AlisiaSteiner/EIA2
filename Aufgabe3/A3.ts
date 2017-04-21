@@ -45,6 +45,7 @@ namespace Aufgabe3 {
         "Pik König",
         "Pik As"
     ];
+   
 
 
     document.addEventListener("DOMContentLoaded", init);
