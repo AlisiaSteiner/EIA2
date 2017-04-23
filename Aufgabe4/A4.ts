@@ -13,7 +13,15 @@ namespace Aufgabe4 {
         drawLittleMountain(50, 250);
         drawLittleMountain(500, 250);
         drawSun();
-        drawSunflower(200, 375);
+        drawSunflower(430, 400);
+        drawSunflower(500, 275);
+        drawSunflower(700, 460);
+        drawCloud(550, 50);
+        drawCloud(180, 100);
+        drawPrimRose(450, 300);
+        drawPrimRose(550, 330);
+        drawPrimRose(570, 450);
+        drawRandomFlower();
     }
 
 
@@ -84,31 +92,259 @@ namespace Aufgabe4 {
         gradient.addColorStop(1, "white");
         crc2.fillStyle = gradient;
         crc2.fill();
+
+    }
+
+    function drawCloud(x: number, y: number): void {
+
+        crc2.fillStyle = "#f2f2f2";
+        crc2.strokeStyle = "#f2f2f2";
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.arc(x, y - 5, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 5, y + 20, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 30, y + 20, 25, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 30, y - 20, 25, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 50, y - 10, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 52, y + 15, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+    }
+
+
+    function drawSunflower(x: number, y: number): void {
+
+        /* Stängel */
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x, y - 30);
+        crc2.closePath();
+        crc2.strokeStyle = "#008000";
+        crc2.stroke();
+
+        /*Blüte*/
+        /*1*/
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x + 2, y - 10, x + 20, y - 15);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x + 20, y - 15);
+        crc2.quadraticCurveTo(x + 18, y - 40, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+        /*2*/
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x + 10, y - 20, x + 25, y - 40);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x + 25, y - 40);
+        crc2.quadraticCurveTo(x + 10, y - 55, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+        /*3*/
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x + 16, y - 45, x + 2, y - 60);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x + 2, y - 60);
+        crc2.quadraticCurveTo(x - 14, y - 45, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "##e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+        /*4*/
+
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x - 10, y - 20, x - 25, y - 40);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x - 25, y - 40);
+        crc2.quadraticCurveTo(x - 10, y - 55, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+        /*5*/
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x - 2, y - 10, x - 20, y - 15);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x - 20, y - 15);
+        crc2.quadraticCurveTo(x - 18, y - 40, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+        /*6*/
+        crc2.beginPath();
+        crc2.moveTo(x, y - 35);
+        crc2.quadraticCurveTo(x + 16, y - 30, x + 2, y - 10);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        crc2.beginPath();
+        crc2.moveTo(x + 2, y - 10);
+        crc2.quadraticCurveTo(x - 14, y - 30, x, y - 35);
+        crc2.closePath();
+        crc2.fillStyle = "#ffff00";
+        crc2.strokeStyle = "#e6ac00";
+        crc2.stroke();
+        crc2.fill();
+
+
+        /*Kreis*/
+        crc2.beginPath();
+        crc2.arc(x, y - 35, 8, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fillStyle = "#804000";
+        crc2.fill();
+
+    }
+
+    function drawPrimRose(x: number, y: number): void {
+
+        /* Stängel */
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x, y - 20);
+        crc2.closePath();
+        crc2.strokeStyle = "#008000";
+        crc2.stroke();
+
+        /*Blüte */
+
+        crc2.fillStyle = "#ff6600";
+        crc2.beginPath();
+        crc2.moveTo(x, y - 20);
+        crc2.arc(x + 5, y - 18, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 6, y - 22, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 4, y - 25, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x + 1, y - 26, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x - 3, y - 25, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x - 5, y - 22, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x - 5, y - 20, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(x - 3, y - 18, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+
+
+
+        /*Kreis*/
+        crc2.beginPath();
+        crc2.arc(x, y - 20, 4, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fillStyle = "#ffcc66";
+        crc2.fill();
+    }
+
+    function drawRandomFlower(): void {
         
-        }
-
-
-        function drawSunflower(x: number, y: number): void {
-
-            /* Stängel */
-            crc2.beginPath();
-            crc2.moveTo(x, y);
-            crc2.lineTo(x, y - 30);
-            crc2.closePath();
-            crc2.strokeStyle = "#008000";
-            crc2.stroke();
+        for (let i: number = 0; i < 10; i++) {
+            let x: number = Math.floor(Math.random() * 420 + 20);
+            let y: number = Math.floor(Math.random() * 250 + 260    );
+            let flowerType: number = Math.floor(Math.random() * 2); console.log(flowerType);
+            if (flowerType == 0) {
+                drawSunflower(x, y);
+            }
+            else {
+                drawPrimRose(x, y);
+            }
             
-            /*Blüte*/
-            crc2.beginPath();
-            crc2.arc(x, y - 35, 8, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fillStyle = "#804000";
-            crc2.fill();
-            
-            crc2.beginPath();
-            crc2.moveTo(x, y - 27);
-            crc2.arc
-            
-
         }
     }
+
+
+
+
+}
