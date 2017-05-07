@@ -1,7 +1,13 @@
 namespace StudiVZ {
     interface StudentData {
-        // hier ist noch die richtige Datenstruktur festzulegen
+        matrikelnr: number;
+        surname: string;
+        forename: string;
+        age: number;
+        male: boolean;
+        kommentar: string;
     }
+    
     var students: StudentData[] = [];
     var stop: boolean = false;
 
@@ -26,6 +32,20 @@ namespace StudiVZ {
     }
 
     function saveData(_input: string): string {
+        
+//        let s: StudentData = { matrikelnr: 0, surname: " ", forename: " ", age:  0, male: false , kommentar: " " }; /* set default */
+        let data: any = _input.split(",");
+        console.log(data[1]);
+        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  0, male: false , kommentar: " " };
+ 
+        
+        
+        
+  
+        
+        
+        
+        
         return "Hier fehlt noch der richtige Code...";
     }
     function queryData(_matrikel: number): string {
