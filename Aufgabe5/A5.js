@@ -4,8 +4,7 @@ var Aufgabe4;
     let crc2;
     let imgData;
     let n = 10;
-    let x = [];
-    let y = [];
+    let beePositions = [];
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -29,9 +28,12 @@ var Aufgabe4;
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /* 10 Bienen zeichnen */
         for (let i = 0; i < n; i++) {
-            x[i] = 665;
-            y[i] = 345;
-            drawBee(x[i], y[i]);
+            let b = { x: 0, y: 0 };
+            b.x = 665;
+            b.y = 345;
+            drawBee(b.x, b.y);
+            b = beePositions[i];
+            console.log(beePositions[i]);
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
@@ -339,7 +341,7 @@ var Aufgabe4;
         /*Körper*/
         crc2.beginPath();
         moveTo(x, y);
-           crc2.ellipse(x, y, 6, 4, 0, Math.PI * 2, 0); 
+          crc2.ellipse(x, y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
         crc2.fillStyle = "#ffcc00";
         crc2.fill();
@@ -353,28 +355,28 @@ var Aufgabe4;
         crc2.fill();
     }
     function drawAnotherBee() {
-        x.push(665);
-        y.push(345);
+        beePositions.push({ x: 665, y: 345 });
         n++;
     }
     function animate() {
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            x[i] += Math.random() * 5 - 3;
-            y[i] += Math.random() * 3.8 - 2;
-            if (x[i] > 801) {
-                x[i] = 0;
+            let b = beePositions[i];
+            b.x += Math.random() * 5 - 3;
+            b.y += Math.random() * 3.8 - 2;
+            if (b.x > 801) {
+                b.x = 0;
             }
-            if (x[i] < 0) {
-                x[i] = 800;
+            if (b.x < 0) {
+                b.x = 800;
             }
-            if (y[i] > 500) {
-                y[i] = 0;
+            if (b.y > 500) {
+                b.y = 0;
             }
-            if (y[i] < 0) {
-                y[i] = 500;
+            if (b.y < 0) {
+                b.y = 500;
             }
-            drawBee(x[i], y[i]);
+            drawBee(b.x, b.y);
         }
         window.setTimeout(animate, 20);
     }

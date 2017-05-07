@@ -3,8 +3,14 @@ namespace Aufgabe4 {
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let n: number = 10;
-    let x: number[] = [];
-    let y: number[] = [];
+
+
+    interface BeeData {
+        x: number;
+        y: number;
+    }
+
+    let beePositions: BeeData[] = [];
 
 
 
@@ -35,11 +41,15 @@ namespace Aufgabe4 {
         /* 10 Bienen zeichnen */
 
         for (let i: number = 0; i < n; i++) {
-            x[i] = 665;
-            y[i] = 345;
 
-            drawBee(x[i], y[i]);
+            let b: BeeData = { x: 0, y: 0 };
+            b.x = 665;
+            b.y = 345;
 
+            drawBee(b.x, b.y);
+            b = beePositions[i];
+
+            console.log(beePositions[i]);
         }
 
 
@@ -396,18 +406,18 @@ namespace Aufgabe4 {
 
     function drawBee(x: number, y: number): void {
 
-        
-        
+
+
         /*Flügel 1*/
-         crc2.beginPath();
+        crc2.beginPath();
         //        crc2.ellipse(x , y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = "#e6e6e6";
         crc2.fill();
-        
+
         /*Stachel*/
         crc2.beginPath();
-        crc2.moveTo(x + 5, y - 1 );
+        crc2.moveTo(x + 5, y - 1);
         crc2.lineTo(x + 10, y + 0.5);
         crc2.lineTo(x + 5, y + 2);
         crc2.lineTo(x + 5, y);
@@ -415,9 +425,9 @@ namespace Aufgabe4 {
         crc2.fillStyle = "black";
         crc2.fill();
         crc2.stroke();
-        
+
         /*Körper*/
-        
+
         crc2.beginPath();
         moveTo(x, y);
         //   crc2.ellipse(x, y, 6, 4, 0, Math.PI * 2, 0); 
@@ -435,13 +445,12 @@ namespace Aufgabe4 {
         crc2.fillStyle = "#e6e6e6";
         crc2.fill();
 
-        
+
     }
 
     function drawAnotherBee(): void {
 
-        x.push(665);
-        y.push(345);
+        beePositions.push( { x: 665, y: 345} );
         n++;
     }
 
@@ -452,23 +461,25 @@ namespace Aufgabe4 {
 
         for (let i: number = 0; i < n; i++) {
 
-            x[i] += Math.random() * 5 - 3;
-            y[i] += Math.random() * 3.8 - 2;
+            let b: BeeData = beePositions[i];
+            
+            b.x += Math.random() * 5 - 3;
+            b.y += Math.random() * 3.8 - 2;
 
-            if (x[i] > 801) {
-                x[i] = 0;
+            if ( b.x > 801) {
+                 b.x = 0;
             }
-            if (x[i] < 0) {
-                x[i] = 800;
+            if ( b.x < 0) {
+                 b.x = 800;
             }
-            if (y[i] > 500) {
-                y[i] = 0;
+            if (b.y > 500) {
+                b.y = 0;
             }
-            if (y[i] < 0) {
-                y[i] = 500;
+            if (b.y < 0) {
+                b.y = 500;
             }
 
-            drawBee(x[i], y[i]);
+            drawBee(b.x, b.y);
         }
 
         window.setTimeout(animate, 20);
