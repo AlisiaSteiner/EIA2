@@ -33,14 +33,16 @@ namespace StudiVZ {
 
     function saveData(_input: string): string {
         
-//        let s: StudentData = { matrikelnr: 0, surname: " ", forename: " ", age:  0, male: false , kommentar: " " }; /* set default */
+
         let data: any = _input.split(",");
         console.log(data[1]);
-        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  0, male: false , kommentar: " " };
+//        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  0, male: false , kommentar: " " };
  
+        students.push(data);
         
+        console.log(students);
         
-        
+        /* Überprüfung fehlt */
   
         
         
