@@ -22,9 +22,8 @@ var StudiVZ;
     }
     function saveData(_input) {
         let data = _input.split(",");
-        console.log(data[1]);
-        //        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  0, male: false , kommentar: " " };
-        students.push(data);
+        let s = { matrikelnr: data[0], surname: data[1], forename: data[2], age: data[3], gender: data[4], kommentar: data[5] };
+        students.push(s);
         console.log(students);
         /* Überprüfung fehlt */
         return "Hier fehlt noch der richtige Code...";

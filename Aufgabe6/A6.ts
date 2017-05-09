@@ -4,7 +4,7 @@ namespace StudiVZ {
         surname: string;
         forename: string;
         age: number;
-        male: boolean;
+        gender: boolean;
         kommentar: string;
     }
     
@@ -35,10 +35,10 @@ namespace StudiVZ {
         
 
         let data: any = _input.split(",");
-        console.log(data[1]);
-//        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  0, male: false , kommentar: " " };
+        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  data[3], gender: data[4] , kommentar: data[5] };
  
-        students.push(data);
+        
+        students.push(s);
         
         console.log(students);
         
