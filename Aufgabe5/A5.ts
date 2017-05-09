@@ -8,6 +8,7 @@ namespace Aufgabe4 {
     interface BeeData {
         x: number;
         y: number;
+       color: string;
     }
 
     let beePositions: BeeData[] = [];
@@ -42,13 +43,14 @@ namespace Aufgabe4 {
 
         for (let i: number = 0; i < n; i++) {
 
-            let b: BeeData = { x: 0, y: 0 };
+            let b: BeeData = { x: 0, y: 0, color: "#ff000"};
             b.x = 665;
             b.y = 345;
+            b.color = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
             console.log(b);
 
-            drawBee(b.x, b.y);
-            b = beePositions[i];
+            drawBee(b.x, b.y, b.color);
+            beePositions[i] = b;
 
 
         }
@@ -405,7 +407,7 @@ namespace Aufgabe4 {
 
 
 
-    function drawBee(_x: number, _y: number): void {
+    function drawBee(_x: number, _y: number, _color: string): void {
 
 
 
@@ -433,7 +435,7 @@ namespace Aufgabe4 {
         moveTo(_x, _y);
         //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
-        crc2.fillStyle = "#ffcc00";
+        crc2.fillStyle = "_color";
         crc2.fill();
         crc2.strokeStyle = "black";
         crc2.stroke();
@@ -454,7 +456,7 @@ namespace Aufgabe4 {
 
     function drawAnotherBee(): void {
 
-        beePositions.push( { x: 665, y: 345} );
+        beePositions.push( { x: 665, y: 345, color: "hsl(" + Math.random() * 70 + ", 100%, 50%)" } );
         n++;
     }
 
@@ -465,7 +467,7 @@ namespace Aufgabe4 {
 
         for (let i: number = 0; i < n; i++) {
 
-            let b: BeeData = {x: 0, y: 0};
+            let b: BeeData = {x: 0, y: 0, color: "" };
             b = beePositions[i];
             
             
@@ -485,7 +487,7 @@ namespace Aufgabe4 {
                 b.y = 500;
             }
 
-            drawBee(b.x, b.y);
+            drawBee(b.x, b.y, b.color);
         }
 
         window.setTimeout(animate, 20);

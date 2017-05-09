@@ -28,12 +28,13 @@ var Aufgabe4;
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /* 10 Bienen zeichnen */
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0 };
+            let b = { x: 0, y: 0, color: "#ff000" };
             b.x = 665;
             b.y = 345;
+            b.color = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
             console.log(b);
-            drawBee(b.x, b.y);
-            b = beePositions[i];
+            drawBee(b.x, b.y, b.color);
+            beePositions[i] = b;
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
@@ -321,10 +322,10 @@ var Aufgabe4;
         crc2.fillStyle = "#000000";
         crc2.fill();
     }
-    function drawBee(_x, _y) {
+    function drawBee(_x, _y, _color) {
         /*Flügel 1*/
         crc2.beginPath();
-                crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+               crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = "#e6e6e6";
         crc2.fill();
@@ -341,9 +342,9 @@ var Aufgabe4;
         /*Körper*/
         crc2.beginPath();
         moveTo(_x, _y);
-           crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+          crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
-        crc2.fillStyle = "#ffcc00";
+        crc2.fillStyle = "_color";
         crc2.fill();
         crc2.strokeStyle = "black";
         crc2.stroke();
@@ -356,13 +357,13 @@ var Aufgabe4;
         console.log("Bee drawn");
     }
     function drawAnotherBee() {
-        beePositions.push({ x: 665, y: 345 });
+        beePositions.push({ x: 665, y: 345, color: "hsl(" + Math.random() * 70 + ", 100%, 50%)" });
         n++;
     }
     function animate() {
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0 };
+            let b = { x: 0, y: 0, color: "" };
             b = beePositions[i];
             b.x += Math.random() * 5 - 3;
             b.y += Math.random() * 3.8 - 2;
@@ -378,7 +379,7 @@ var Aufgabe4;
             if (b.y < 0) {
                 b.y = 500;
             }
-            drawBee(b.x, b.y);
+            drawBee(b.x, b.y, b.color);
         }
         window.setTimeout(animate, 20);
     }
