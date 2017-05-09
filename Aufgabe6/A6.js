@@ -35,7 +35,13 @@ var StudiVZ;
         }
     }
     function queryData(_matrikel) {
-        return "Hier fehlt noch der richtige Code...";
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].matrikelnr == _matrikel) {
+                let gender = students[i].gender ? "m" : "w";
+                return "Es wurden folgende Daten zur Matrikelnummer " + _matrikel + " gefunden:" + "\nName: " + students[i].surname + "\nVorname: " + students[i].forename + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].kommentar;
+            }
+        }
+        return "Es sind keine Daten zur angegebenen Matrikelnummer vorhanden.";
     }
 })(StudiVZ || (StudiVZ = {}));
 //# sourceMappingURL=A6.js.map
