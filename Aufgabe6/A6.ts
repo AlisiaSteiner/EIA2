@@ -7,7 +7,7 @@ namespace StudiVZ {
         gender: boolean;
         kommentar: string;
     }
-    
+
     var students: StudentData[] = [];
     var stop: boolean = false;
 
@@ -32,24 +32,32 @@ namespace StudiVZ {
     }
 
     function saveData(_input: string): string {
-        
+
 
         let data: any = _input.split(",");
-        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age:  data[3], gender: data[4] , kommentar: data[5] };
- 
+        let s: StudentData = { matrikelnr: data[0], surname: data[1], forename: data[2], age: data[3], gender: data[4], kommentar: data[5] };
+
+        /* Überprüfung der Werte */
+
+        if (isNaN(parseInt(data[0]))) {
+            
+            console.log("Matrikelnummer inkorrekt, keine Daten gespeichert.");
+          
+            return "Bei der angegebenen Matrikelnummer handelt es sich nicht um eine Nummer!";
+          
+        }
         
-        students.push(s);
-        
-        console.log(students);
-        
-        /* Überprüfung fehlt */
-  
-        
-        
-        
-        
-        return "Hier fehlt noch der richtige Code...";
+        else {
+
+            students.push(s);
+
+            console.log(students);
+
+            return "Ihre Daten wurden erfolgreich gespeichert.";
+        }
     }
+    
+    
     function queryData(_matrikel: number): string {
         return "Hier fehlt noch der richtige Code...";
     }
