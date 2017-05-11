@@ -1,6 +1,10 @@
 var Aufgabe7;
 (function (Aufgabe7) {
     class Bees {
+        updatePosition() {
+            this.move();
+            this.drawBee();
+        }
         drawBee() {
             /*Flügel 1*/
             Aufgabe7.crc2.beginPath();
@@ -33,6 +37,14 @@ var Aufgabe7;
             Aufgabe7.crc2.closePath();
             Aufgabe7.crc2.fillStyle = this.wingcolor;
             Aufgabe7.crc2.fill();
+        }
+        move() {
+            this.x += Math.random() * 5 - 3;
+            this.y *= Math.random() * 3.8 - 2;
+        }
+        setRandomColors() {
+            this.bodycolor = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
+            this.wingcolor = "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)";
         }
     }
     Aufgabe7.Bees = Bees;

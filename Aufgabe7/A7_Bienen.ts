@@ -9,7 +9,16 @@ export class Bees {
         wingcolor: string;
    
         
-        drawBee(): void {
+    
+    updatePosition(): void {
+            
+            this.move();
+            this.drawBee();
+            }
+    
+    
+    
+     drawBee(): void {
             
             /*Flügel 1*/
         crc2.beginPath();
@@ -50,9 +59,19 @@ export class Bees {
         }
     
     
+     move(): void {
+            
+            this.x += Math.random() * 5 - 3;
+            this.y *= Math.random() * 3.8 - 2;
+            
+        }
 
-
-
+      setRandomColors(): void {
+            
+            this.bodycolor = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
+            this.wingcolor = "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)";
+ 
+            }
 
 
     }
