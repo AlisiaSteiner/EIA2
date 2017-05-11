@@ -1,6 +1,6 @@
 namespace Aufgabe7 {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
+   export  let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let n: number = 10;
 
@@ -407,52 +407,6 @@ namespace Aufgabe7 {
 
 
 
-    function drawBee(_x: number, _y: number, _color: string): void {
-
-
-
-        /*Flügel 1*/
-        crc2.beginPath();
-        //        crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
-        crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
-        crc2.fill();
-
-        /*Stachel*/
-        crc2.beginPath();
-        crc2.moveTo(_x + 5, _y - 1);
-        crc2.lineTo(_x + 10, _y + 0.5);
-        crc2.lineTo(_x + 5, _y + 2);
-        crc2.lineTo(_x + 5, _y);
-        crc2.closePath();
-        crc2.fillStyle = "black";
-        crc2.fill();
-        crc2.stroke();
-
-        /*Körper*/
-
-        crc2.beginPath();
-        moveTo(_x, _y);
-        //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
-        crc2.closePath();
-        crc2.fillStyle = "_color";
-        crc2.fill();
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        /*Flügel 2*/
-
-        crc2.beginPath();
-        //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
-        crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
-        crc2.fill();
-        
-        
-        console.log("Bee drawn");
-
-
-    }
 
     function drawAnotherBee(): void {
 
