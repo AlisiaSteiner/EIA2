@@ -1,4 +1,4 @@
-namespace Aufgabe4 {
+namespace Aufgabe5 {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
@@ -8,7 +8,8 @@ namespace Aufgabe4 {
     interface BeeData {
         x: number;
         y: number;
-       color: string;
+       bodycolor: string;
+       wingcolor: string;
     }
 
     let beePositions: BeeData[] = [];
@@ -43,13 +44,14 @@ namespace Aufgabe4 {
 
         for (let i: number = 0; i < n; i++) {
 
-            let b: BeeData = { x: 0, y: 0, color: "#ff000"};
+            let b: BeeData = { x: 0, y: 0, bodycolor: "#ff000", wingcolor: "0000ff"};
             b.x = 665;
             b.y = 345;
-            b.color = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
-            console.log(b);
+            b.bodycolor = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
+            b.wingcolor = "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)";
+            console.log(b.bodycolor);
 
-            drawBee(b.x, b.y, b.color);
+            drawBee(b.x, b.y, b.bodycolor, b.wingcolor);
             beePositions[i] = b;
 
 
@@ -407,7 +409,7 @@ namespace Aufgabe4 {
 
 
 
-    function drawBee(_x: number, _y: number, _color: string): void {
+    function drawBee(_x: number, _y: number, _bodycolor: string, _wingcolor: string ): void {
 
 
 
@@ -415,7 +417,7 @@ namespace Aufgabe4 {
         crc2.beginPath();
         //        crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
+        crc2.fillStyle = _wingcolor;
         crc2.fill();
 
         /*Stachel*/
@@ -435,7 +437,7 @@ namespace Aufgabe4 {
         moveTo(_x, _y);
         //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
-        crc2.fillStyle = "_color";
+        crc2.fillStyle = _bodycolor;
         crc2.fill();
         crc2.strokeStyle = "black";
         crc2.stroke();
@@ -445,7 +447,7 @@ namespace Aufgabe4 {
         crc2.beginPath();
         //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
         crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
+        crc2.fillStyle = _wingcolor;
         crc2.fill();
         
         
@@ -456,7 +458,7 @@ namespace Aufgabe4 {
 
     function drawAnotherBee(): void {
 
-        beePositions.push( { x: 665, y: 345, color: "hsl(" + Math.random() * 70 + ", 100%, 50%)" } );
+        beePositions.push( { x: 665, y: 345, bodycolor: "hsl(" + Math.random() * 70 + ", 100%, 50%)", wingcolor: "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)"} );
         n++;
     }
 
@@ -467,7 +469,7 @@ namespace Aufgabe4 {
 
         for (let i: number = 0; i < n; i++) {
 
-            let b: BeeData = {x: 0, y: 0, color: "" };
+            let b: BeeData = {x: 0, y: 0, bodycolor: "", wingcolor: ""};
             b = beePositions[i];
             
             
@@ -487,7 +489,7 @@ namespace Aufgabe4 {
                 b.y = 500;
             }
 
-            drawBee(b.x, b.y, b.color);
+            drawBee(b.x, b.y, b.bodycolor, b.wingcolor);
         }
 
         window.setTimeout(animate, 20);

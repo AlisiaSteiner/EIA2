@@ -1,5 +1,5 @@
-var Aufgabe4;
-(function (Aufgabe4) {
+var Aufgabe5;
+(function (Aufgabe5) {
     window.addEventListener("load", init);
     let crc2;
     let imgData;
@@ -28,12 +28,13 @@ var Aufgabe4;
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /* 10 Bienen zeichnen */
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0, color: "#ff000" };
+            let b = { x: 0, y: 0, bodycolor: "#ff000", wingcolor: "0000ff" };
             b.x = 665;
             b.y = 345;
-            b.color = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
-            console.log(b);
-            drawBee(b.x, b.y, b.color);
+            b.bodycolor = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
+            b.wingcolor = "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)";
+            console.log(b.bodycolor);
+            drawBee(b.x, b.y, b.bodycolor, b.wingcolor);
             beePositions[i] = b;
         }
         window.setTimeout(animate, 30);
@@ -322,12 +323,12 @@ var Aufgabe4;
         crc2.fillStyle = "#000000";
         crc2.fill();
     }
-    function drawBee(_x, _y, _color) {
+    function drawBee(_x, _y, _bodycolor, _wingcolor) {
         /*Flügel 1*/
         crc2.beginPath();
-               crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+                crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
+        crc2.fillStyle = _wingcolor;
         crc2.fill();
         /*Stachel*/
         crc2.beginPath();
@@ -342,28 +343,28 @@ var Aufgabe4;
         /*Körper*/
         crc2.beginPath();
         moveTo(_x, _y);
-          crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+           crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
-        crc2.fillStyle = "_color";
+        crc2.fillStyle = _bodycolor;
         crc2.fill();
         crc2.strokeStyle = "black";
         crc2.stroke();
         /*Flügel 2*/
         crc2.beginPath();
-               crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+              crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
         crc2.closePath();
-        crc2.fillStyle = "#e6e6e6";
+        crc2.fillStyle = _wingcolor;
         crc2.fill();
         console.log("Bee drawn");
     }
     function drawAnotherBee() {
-        beePositions.push({ x: 665, y: 345, color: "hsl(" + Math.random() * 70 + ", 100%, 50%)" });
+        beePositions.push({ x: 665, y: 345, bodycolor: "hsl(" + Math.random() * 70 + ", 100%, 50%)", wingcolor: "hsl(" + Math.random() * 150 + 150 + ", 100%, 60%)" });
         n++;
     }
     function animate() {
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0, color: "" };
+            let b = { x: 0, y: 0, bodycolor: "", wingcolor: "" };
             b = beePositions[i];
             b.x += Math.random() * 5 - 3;
             b.y += Math.random() * 3.8 - 2;
@@ -379,9 +380,9 @@ var Aufgabe4;
             if (b.y < 0) {
                 b.y = 500;
             }
-            drawBee(b.x, b.y, b.color);
+            drawBee(b.x, b.y, b.bodycolor, b.wingcolor);
         }
         window.setTimeout(animate, 20);
     }
-})(Aufgabe4 || (Aufgabe4 = {}));
+})(Aufgabe5 || (Aufgabe5 = {}));
 //# sourceMappingURL=A5.js.map
