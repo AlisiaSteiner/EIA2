@@ -12,7 +12,7 @@ var Aufgabe7;
         let background = new Aufgabe7.Background;
         let flowers = new Aufgabe7.Blumen;
         imgData = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! */
+        /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! --> Eben durch Zufall den Fehler gefunden  - Lösung folgt baldmöglich */
         for (let i = 0; i < n; i++) {
             let b = new Aufgabe7.Bees();
             console.log("i");
@@ -22,6 +22,7 @@ var Aufgabe7;
             let nectarFlowers = new Aufgabe7.Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
+            console.log(blumen[i]);
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);

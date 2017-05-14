@@ -21,7 +21,7 @@ export class Bees {
         }
     
     updatePosition(): void {
-            
+            console.log("");
             
             this.move();
             this.drawBee(this.x, this.y);

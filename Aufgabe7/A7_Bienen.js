@@ -9,13 +9,14 @@ var Aufgabe7;
             this.drawBee(this.x, this.y);
         }
         updatePosition() {
+            console.log("");
             this.move();
             this.drawBee(this.x, this.y);
         }
         drawBee(_x, _y) {
             /*Flügel 1*/
             Aufgabe7.crc2.beginPath();
-                    crc2.ellipse(_x, _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+            //        crc2.ellipse(_x, _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
             Aufgabe7.crc2.closePath();
             Aufgabe7.crc2.fillStyle = this.wingcolor;
             Aufgabe7.crc2.fill();
@@ -32,7 +33,7 @@ var Aufgabe7;
             /*Körper*/
             Aufgabe7.crc2.beginPath();
             moveTo(_x, _y);
-               crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+            //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
             Aufgabe7.crc2.closePath();
             Aufgabe7.crc2.fillStyle = this.bodycolor;
             Aufgabe7.crc2.fill();
@@ -40,7 +41,7 @@ var Aufgabe7;
             Aufgabe7.crc2.stroke();
             /*Flügel 2*/
             Aufgabe7.crc2.beginPath();
-                    crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+            //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
             Aufgabe7.crc2.closePath();
             Aufgabe7.crc2.fillStyle = this.wingcolor;
             Aufgabe7.crc2.fill();

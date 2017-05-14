@@ -24,7 +24,7 @@ namespace Aufgabe7 {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
-        /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! */
+        /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! --> Eben durch Zufall den Fehler gefunden  - Lösung folgt baldmöglich */
         for (let i: number = 0; i < n; i++) {
 
             let b: Bees = new Bees();
@@ -38,7 +38,7 @@ namespace Aufgabe7 {
             let nectarFlowers: Blumen = new Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
-            
+            console.log(blumen[i]);
             }
 
 
