@@ -67,13 +67,15 @@ export class Bees {
         crc2.closePath();
         crc2.fillStyle = this.wingcolor;
         crc2.fill();
-        }
+        
+     
+     }
     
     
      move(): void {
             
             this.x += Math.random() * 5 - 3;
-            this.y *= Math.random() * 3.8 - 2;
+            this.y += Math.random() * 3.8 - 2;
             
         }
 

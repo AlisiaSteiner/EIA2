@@ -18,6 +18,7 @@ var Aufgabe7;
         /* --> Eben durch Zufall einen Fehler gefunden  - Lösung folgt baldmöglich */
         for (let i = 0; i < n; i++) {
             let b = new Aufgabe7.Bees();
+            beePositions[i] = b;
         }
         /* nectarFlowers */
         for (let i = 0; i < 4; i++) {
@@ -55,7 +56,7 @@ var Aufgabe7;
             }
             b.updatePosition();
         }
-        window.setTimeout(animate, 30);
+        window.setTimeout(animate, 60);
     }
 })(Aufgabe7 || (Aufgabe7 = {}));
 //# sourceMappingURL=A7_Main.js.map

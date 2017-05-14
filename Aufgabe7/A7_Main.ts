@@ -31,6 +31,7 @@ namespace Aufgabe7 {
         for (let i: number = 0; i < n; i++) {
 
             let b: Bees = new Bees();
+            beePositions[i] = b;
             
 
 //            console.log("i");
@@ -46,7 +47,7 @@ namespace Aufgabe7 {
         }
 
 
-        window.setTimeout(animate, 30);
+      window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
 
@@ -63,7 +64,7 @@ namespace Aufgabe7 {
     }
 
 
-    function animate(): void {
+  function animate(): void {
 
         crc2.putImageData(imgData, 0, 0);
 
@@ -89,7 +90,7 @@ namespace Aufgabe7 {
 
         }
 
-        window.setTimeout(animate, 30);
+        window.setTimeout(animate, 60);
 
     }
 
