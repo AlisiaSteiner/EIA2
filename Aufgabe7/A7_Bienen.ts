@@ -8,31 +8,42 @@ export class Bees {
         bodycolor: string;
         wingcolor: string;
    
+
+    
+    constructor() {
         
+        console.log("Hallo, ich bin eine Biene!");
+        
+        this.x = 665;
+        this.y = 345;
+        this.setRandomColors();
+        this.drawBee(this.x, this.y);
+        }
     
     updatePosition(): void {
             
+            
             this.move();
-            this.drawBee();
+            this.drawBee(this.x, this.y);
             }
     
     
     
-     drawBee(): void {
+     drawBee(_x: number, _y: number): void {
             
             /*Flügel 1*/
         crc2.beginPath();
-        //        crc2.ellipse(this.x, this.y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+        //        crc2.ellipse(_x, _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = this.wingcolor;
         crc2.fill();
 
         /*Stachel*/
         crc2.beginPath();
-        crc2.moveTo(this.x + 5, this.y - 1);
-        crc2.lineTo(this.x + 10, this.y + 0.5);
-        crc2.lineTo(this.x + 5, this.y + 2);
-        crc2.lineTo(this.x + 5, this.y);
+        crc2.moveTo(_x + 5, _y - 1);
+        crc2.lineTo(_x + 10, _y + 0.5);
+        crc2.lineTo(_x + 5, _y + 2);
+        crc2.lineTo(_x + 5, _y);
         crc2.closePath();
         crc2.fillStyle = "black";
         crc2.fill();
@@ -41,8 +52,8 @@ export class Bees {
         /*Körper*/
 
         crc2.beginPath();
-        moveTo(this.x, this.y);
-        //   crc2.ellipse(this.x, this.y, 6, 4, 0, Math.PI * 2, 0); 
+        moveTo(_x, _y);
+        //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
         crc2.fillStyle = this.bodycolor;
         crc2.fill();
@@ -52,7 +63,7 @@ export class Bees {
         /*Flügel 2*/
 
         crc2.beginPath();
-        //        crc2.ellipse(this.x + 2, this.y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+        //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = this.wingcolor;
         crc2.fill();
