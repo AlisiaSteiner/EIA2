@@ -21,9 +21,10 @@ namespace Aufgabe7 {
         let background: Background = new Background;
         /* Random Flowers */
         for (let i: number = 0; i < 10; i++) {
-            let randomFlower: Blumen = new Blumen;}
-        
-        
+            let randomFlower: Blumen = new Blumen;
+        }
+
+
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
@@ -32,9 +33,9 @@ namespace Aufgabe7 {
 
             let b: Bees = new Bees();
             beePositions[i] = b;
-            
 
-//            console.log("i");
+
+            //            console.log("i");
         }
 
 
@@ -47,7 +48,7 @@ namespace Aufgabe7 {
         }
 
 
-      window.setTimeout(animate, 30);
+        window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
 
@@ -64,7 +65,7 @@ namespace Aufgabe7 {
     }
 
 
-  function animate(): void {
+    function animate(): void {
 
         crc2.putImageData(imgData, 0, 0);
 
@@ -90,7 +91,7 @@ namespace Aufgabe7 {
 
         }
 
-        window.setTimeout(animate, 60);
+        window.setTimeout(animate, 30);
 
     }
 

@@ -56,7 +56,7 @@ var Aufgabe7;
             }
             b.updatePosition();
         }
-        window.setTimeout(animate, 60);
+        window.setTimeout(animate, 30);
     }
 })(Aufgabe7 || (Aufgabe7 = {}));
 //# sourceMappingURL=A7_Main.js.map
