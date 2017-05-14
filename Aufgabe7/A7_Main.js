@@ -40,9 +40,6 @@ var Aufgabe7;
         Aufgabe7.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
             let b = beePositions[i];
-            console.log("test");
-            b.x += Math.random() * 5 - 3;
-            b.y += Math.random() * 3.8 - 2;
             if (b.x > 801) {
                 b.x = 0;
             }
