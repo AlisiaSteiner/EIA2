@@ -91,7 +91,7 @@ namespace Aufgabe7 {
 
         }
 
-        window.setTimeout(animate, 30);
+        window.setTimeout(animate, 20);
 
     }
 
