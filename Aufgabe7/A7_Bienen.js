@@ -9,7 +9,6 @@ var Aufgabe7;
             this.drawBee(this.x, this.y);
         }
         updatePosition() {
-            console.log("");
             this.move();
             this.drawBee(this.x, this.y);
         }

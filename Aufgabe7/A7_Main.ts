@@ -44,9 +44,9 @@ namespace Aufgabe7 {
             let nectarFlowers: Blumen = new Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
-            console.log(blumen[i]);
-        }
 
+        }
+        console.log(blumen);
 
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
@@ -71,7 +71,7 @@ namespace Aufgabe7 {
 
         for (let i: number = 0; i < n; i++) {
 
-            console.log(beePositions[i]);
+
             let b: Bees = beePositions[i];
 
             if (b.x > 801) {

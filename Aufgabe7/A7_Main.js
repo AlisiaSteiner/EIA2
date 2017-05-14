@@ -25,8 +25,8 @@ var Aufgabe7;
             let nectarFlowers = new Aufgabe7.Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
-            console.log(blumen[i]);
         }
+        console.log(blumen);
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
@@ -40,7 +40,6 @@ var Aufgabe7;
     function animate() {
         Aufgabe7.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            console.log(beePositions[i]);
             let b = beePositions[i];
             if (b.x > 801) {
                 b.x = 0;
