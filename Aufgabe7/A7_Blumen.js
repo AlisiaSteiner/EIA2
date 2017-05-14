@@ -9,17 +9,15 @@ var Aufgabe7;
             this.y = Math.floor(Math.random() * 250 + 260);
         }
         drawRandomFlower() {
-            for (let i = 0; i < 10; i++) {
-                this.randomPosition();
-                let flowerType = Math.floor(Math.random() * 2);
-                if (flowerType == 0) {
-                    this.drawSunflower();
-                }
-                else {
-                    this.drawPrimRose();
-                }
-                console.log("Neue Blume gepflanzt");
+            this.randomPosition();
+            let flowerType = Math.floor(Math.random() * 2);
+            if (flowerType == 0) {
+                this.drawSunflower();
             }
+            else {
+                this.drawPrimRose();
+            }
+            console.log("Neue Blume gepflanzt");
         }
         drawSunflower() {
             /* Stängel */

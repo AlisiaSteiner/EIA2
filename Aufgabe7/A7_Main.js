@@ -10,15 +10,17 @@ var Aufgabe7;
         canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe7.crc2 = canvas.getContext("2d");
         let background = new Aufgabe7.Background;
-        let flowers = new Aufgabe7.Blumen;
+        /* Random Flowers */
+        for (let i = 0; i < 10; i++) {
+            let randomFlower = new Aufgabe7.Blumen;
+        }
         imgData = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
         /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! --> Eben durch Zufall den Fehler gefunden  - Lösung folgt baldmöglich */
         for (let i = 0; i < n; i++) {
             let b = new Aufgabe7.Bees();
-            console.log("i");
         }
         /* nectarFlowers */
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 4; i++) {
             let nectarFlowers = new Aufgabe7.Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
