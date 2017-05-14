@@ -3,17 +3,25 @@ var Aufgabe7;
     window.addEventListener("load", init);
     let imgData;
     let n = 10;
+    let blumen = [];
     let beePositions = [];
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe7.crc2 = canvas.getContext("2d");
-        imgData = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
         let background = new Aufgabe7.Background;
         let flowers = new Aufgabe7.Blumen;
+        imgData = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        /* Error: Crc2 is not defined an einigen Stellen der Bienen.ts. Fehler noch nicht gefunden! */
         for (let i = 0; i < n; i++) {
-            let b = new Aufgabe7.Bees;
-            console.log(i);
+            let b = new Aufgabe7.Bees();
+            console.log("i");
+        }
+        /* nectarFlowers */
+        for (let i = 0; i < 8; i++) {
+            let nectarFlowers = new Aufgabe7.Blumen();
+            blumen[i] = nectarFlowers;
+            blumen.push(nectarFlowers);
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
@@ -29,6 +37,7 @@ var Aufgabe7;
         Aufgabe7.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
             let b = beePositions[i];
+            console.log("test");
             b.x += Math.random() * 5 - 3;
             b.y += Math.random() * 3.8 - 2;
             if (b.x > 801) {
