@@ -326,7 +326,7 @@ var Aufgabe5;
     function drawBee(_x, _y, _bodycolor, _wingcolor) {
         /*Flügel 1*/
         crc2.beginPath();
-                crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+        //        crc2.ellipse(_x , _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = _wingcolor;
         crc2.fill();
@@ -343,7 +343,7 @@ var Aufgabe5;
         /*Körper*/
         crc2.beginPath();
         moveTo(_x, _y);
-           crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+        //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
         crc2.closePath();
         crc2.fillStyle = _bodycolor;
         crc2.fill();
@@ -351,7 +351,7 @@ var Aufgabe5;
         crc2.stroke();
         /*Flügel 2*/
         crc2.beginPath();
-              crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+        //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
         crc2.closePath();
         crc2.fillStyle = _wingcolor;
         crc2.fill();
