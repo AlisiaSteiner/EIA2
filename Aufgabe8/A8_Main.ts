@@ -1,3 +1,13 @@
+/*
+Aufgabe:    Aufgabe 8
+Name:       Alisia Steiner
+Matrikel:   254788
+Datum:      18.05.2017
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
 namespace Aufgabe8 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
@@ -8,7 +18,7 @@ namespace Aufgabe8 {
 
     let beePositions: Bees[] = [];
 
-/* */
+
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement; 
@@ -21,14 +31,31 @@ namespace Aufgabe8 {
         let background: Background = new Background;
         /* Random Flowers */
         for (let i: number = 0; i < 10; i++) {
-            let randomFlower: Blumen = new Blumen;
+//            let randomFlower: Blumen = new Blumen;
+          let flowerType: number = Math.floor(Math.random() * 2);
+                if (flowerType == 0) {
+                    let sunflower: Sunflower = new Sunflower;
+                }
+                else {
+                     let primrose: Primrose = new Primrose;
+                }
         }
+        
+        /* nectarFlowers */
+        for (let i: number = 0; i < 3; i++) {
+            let nectarFlowers: Sunflower = new Sunflower;
+            blumen[i] = nectarFlowers;
+            blumen.push(nectarFlowers);
+
+        }
+        console.log(blumen);
+
 
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
-        /* --> Eben durch Zufall einen Fehler gefunden  - Lösung folgt baldmöglich */
+        
         for (let i: number = 0; i < n; i++) {
 
             let b: Bees = new Bees();
@@ -39,15 +66,7 @@ namespace Aufgabe8 {
         }
 
 
-        /* nectarFlowers */
-        for (let i: number = 0; i < 4; i++) {
-            let nectarFlowers: Blumen = new Blumen();
-            blumen[i] = nectarFlowers;
-            blumen.push(nectarFlowers);
-
-        }
-        console.log(blumen);
-
+  
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
