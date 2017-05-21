@@ -23,6 +23,15 @@ namespace Aufgabe7 {
         for (let i: number = 0; i < 10; i++) {
             let randomFlower: Blumen = new Blumen;
         }
+        
+                /* nectarFlowers */
+        for (let i: number = 0; i < 4; i++) {
+            let nectarFlowers: Blumen = new Blumen();
+            blumen[i] = nectarFlowers;
+            blumen.push(nectarFlowers);
+
+        }
+        console.log(blumen);
 
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -39,14 +48,7 @@ namespace Aufgabe7 {
         }
 
 
-        /* nectarFlowers */
-        for (let i: number = 0; i < 4; i++) {
-            let nectarFlowers: Blumen = new Blumen();
-            blumen[i] = nectarFlowers;
-            blumen.push(nectarFlowers);
 
-        }
-        console.log(blumen);
 
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);

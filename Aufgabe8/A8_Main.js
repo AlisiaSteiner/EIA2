@@ -1,5 +1,15 @@
-var Aufgabe7;
-(function (Aufgabe7) {
+/*
+Aufgabe:    Aufgabe 8
+Name:       Alisia Steiner
+Matrikel:   254788
+Datum:      18.05.2017
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+var Aufgabe8;
+(function (Aufgabe8) {
     window.addEventListener("load", init);
     let imgData;
     let n = 10;
@@ -8,23 +18,22 @@ var Aufgabe7;
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
-        Aufgabe7.crc2 = canvas.getContext("2d");
-        let background = new Aufgabe7.Background;
+        Aufgabe8.crc2 = canvas.getContext("2d");
+        let background = new Aufgabe8.Background;
         /* Random Flowers */
         for (let i = 0; i < 10; i++) {
-            let randomFlower = new Aufgabe7.Blumen;
+            let randomFlower = new Aufgabe8.Blumen;
         }
         /* nectarFlowers */
-        for (let i = 0; i < 4; i++) {
-            let nectarFlowers = new Aufgabe7.Blumen();
+        for (let i = 0; i < 3; i++) {
+            let nectarFlowers = new Aufgabe8.Blumen();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
         }
         console.log(blumen);
-        imgData = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        /* --> Eben durch Zufall einen Fehler gefunden  - Lösung folgt baldmöglich */
+        imgData = Aufgabe8.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < n; i++) {
-            let b = new Aufgabe7.Bees();
+            let b = new Aufgabe8.Bees();
             beePositions[i] = b;
         }
         window.setTimeout(animate, 30);
@@ -33,12 +42,12 @@ var Aufgabe7;
     }
     function drawAnotherBee() {
         console.log("Another Bee went on a flight!");
-        let anotherBee = new Aufgabe7.Bees;
+        let anotherBee = new Aufgabe8.Bees;
         beePositions.push(anotherBee);
         n++;
     }
     function animate() {
-        Aufgabe7.crc2.putImageData(imgData, 0, 0);
+        Aufgabe8.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
             let b = beePositions[i];
             if (b.x > 801) {
@@ -57,5 +66,5 @@ var Aufgabe7;
         }
         window.setTimeout(animate, 20);
     }
-})(Aufgabe7 || (Aufgabe7 = {}));
-//# sourceMappingURL=A7_Main.js.map
+})(Aufgabe8 || (Aufgabe8 = {}));
+//# sourceMappingURL=A8_Main.js.map
