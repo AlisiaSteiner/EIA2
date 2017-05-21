@@ -13,7 +13,7 @@ namespace Aufgabe8 {
     export let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let n: number = 10;
-    let blumen: Blumen[] = [];
+   export let blumen: Blumen[] = [];
 
 
     let beePositions: Bees[] = [];
@@ -21,7 +21,7 @@ namespace Aufgabe8 {
 
 
     function init(_event: Event): void {
-        let canvas: HTMLCanvasElement; 
+        let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
 
         crc2 = canvas.getContext("2d");
@@ -31,19 +31,28 @@ namespace Aufgabe8 {
         let background: Background = new Background;
         /* Random Flowers */
         for (let i: number = 0; i < 10; i++) {
-//            let randomFlower: Blumen = new Blumen;
-          let flowerType: number = Math.floor(Math.random() * 2);
-                if (flowerType == 0) {
-                    let sunflower: Sunflower = new Sunflower;
-                }
-                else {
-                     let primrose: Primrose = new Primrose;
-                }
+
+            let randomX: number = Math.floor(Math.random() * 420 + 20);
+            let randomY: number = Math.floor(Math.random() * 250 + 260);
+
+            let flowerType: number = Math.floor(Math.random() * 2);
+            if (flowerType == 0) {
+                let sunflower: Sunflower = new Sunflower(randomX, randomY);
+            }
+            else {
+                let primrose: Primrose = new Primrose(randomX, randomY);
+            }
+            
+            console.log("Neue Blume gepflanzt");
         }
-        
+
         /* nectarFlowers */
         for (let i: number = 0; i < 3; i++) {
-            let nectarFlowers: Sunflower = new Sunflower;
+            
+            let randomX: number = Math.floor(Math.random() * 420 + 20);
+            let randomY: number = Math.floor(Math.random() * 250 + 260);
+            
+            let nectarFlowers: Sunflower = new Sunflower(randomX, randomY);
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
 
@@ -55,18 +64,19 @@ namespace Aufgabe8 {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
-        
+
         for (let i: number = 0; i < n; i++) {
 
-            let b: Bees = new Bees();
+            let b: NormalBees = new NormalBees();
             beePositions[i] = b;
+            let s: SpecialBees = new SpecialBees();
+            beePositions[i] = s;
+            
+       }
+        
 
 
-            //            console.log("i");
-        }
 
-
-  
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);

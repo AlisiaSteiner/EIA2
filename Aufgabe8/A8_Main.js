@@ -13,7 +13,7 @@ var Aufgabe8;
     window.addEventListener("load", init);
     let imgData;
     let n = 10;
-    let blumen = [];
+    Aufgabe8.blumen = [];
     let beePositions = [];
     function init(_event) {
         let canvas;
@@ -22,19 +22,32 @@ var Aufgabe8;
         let background = new Aufgabe8.Background;
         /* Random Flowers */
         for (let i = 0; i < 10; i++) {
-            let randomFlower = new Aufgabe8.Blumen;
+            let randomX = Math.floor(Math.random() * 420 + 20);
+            let randomY = Math.floor(Math.random() * 250 + 260);
+            let flowerType = Math.floor(Math.random() * 2);
+            if (flowerType == 0) {
+                let sunflower = new Aufgabe8.Sunflower(randomX, randomY);
+            }
+            else {
+                let primrose = new Aufgabe8.Primrose(randomX, randomY);
+            }
+            console.log("Neue Blume gepflanzt");
         }
         /* nectarFlowers */
         for (let i = 0; i < 3; i++) {
-            let nectarFlowers = new Aufgabe8.Blumen();
-            blumen[i] = nectarFlowers;
-            blumen.push(nectarFlowers);
+            let randomX = Math.floor(Math.random() * 420 + 20);
+            let randomY = Math.floor(Math.random() * 250 + 260);
+            let nectarFlowers = new Aufgabe8.Sunflower(randomX, randomY);
+            Aufgabe8.blumen[i] = nectarFlowers;
+            Aufgabe8.blumen.push(nectarFlowers);
         }
-        console.log(blumen);
+        console.log(Aufgabe8.blumen);
         imgData = Aufgabe8.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < n; i++) {
-            let b = new Aufgabe8.Bees();
+            let b = new Aufgabe8.NormalBees();
             beePositions[i] = b;
+            let s = new Aufgabe8.SpecialBees();
+            beePositions[i] = s;
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);

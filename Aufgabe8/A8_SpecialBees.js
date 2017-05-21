@@ -10,12 +10,16 @@ nicht kopiert und auch nicht diktiert.
 */
 var Aufgabe8;
 (function (Aufgabe8) {
-    class Blumen {
+    class SpecialBees extends Aufgabe8.Bees {
         constructor() {
-            this.draw();
+            super();
+            console.log("Hallo, ich bin eine Biene!");
         }
-        draw() { }
+        setStartPosition() {
+            this.x = 665;
+            this.y = 345;
+        }
     }
-    Aufgabe8.Blumen = Blumen;
+    Aufgabe8.SpecialBees = SpecialBees;
 })(Aufgabe8 || (Aufgabe8 = {}));
-//# sourceMappingURL=A8_Blumen.js.map
+//# sourceMappingURL=A8_SpecialBees.js.map
