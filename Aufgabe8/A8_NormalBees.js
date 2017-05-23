@@ -12,33 +12,33 @@ nicht kopiert und auch nicht diktiert.
 var Aufgabe8;
 (function (Aufgabe8) {
     class NormalBees extends Aufgabe8.Bees {
-        constructor() {
+        constructor(x, y, bodycolor, wingcolor) {
             super();
-            this.setStartPosition();
-            this.setRandomColors();
-            this.draw(this.x, this.y);
+            //            this.setStartPosition();
+            //            this.setRandomColors();
+            this.draw();
         }
-        draw(_x, _y) {
+        draw() {
             /*Flügel 1*/
             Aufgabe8.crc2.beginPath();
-            //        crc2.ellipse(_x, _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+            //        crc2.ellipse(this.x, _this.y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
             Aufgabe8.crc2.closePath();
             Aufgabe8.crc2.fillStyle = this.wingcolor;
             Aufgabe8.crc2.fill();
             /*Stachel*/
             Aufgabe8.crc2.beginPath();
-            Aufgabe8.crc2.moveTo(_x + 5, _y - 1);
-            Aufgabe8.crc2.lineTo(_x + 10, _y + 0.5);
-            Aufgabe8.crc2.lineTo(_x + 5, _y + 2);
-            Aufgabe8.crc2.lineTo(_x + 5, _y);
+            Aufgabe8.crc2.moveTo(this.x + 5, this.y - 1);
+            Aufgabe8.crc2.lineTo(this.x + 10, this.y + 0.5);
+            Aufgabe8.crc2.lineTo(this.x + 5, this.y + 2);
+            Aufgabe8.crc2.lineTo(this.x + 5, this.y);
             Aufgabe8.crc2.closePath();
             Aufgabe8.crc2.fillStyle = "black";
             Aufgabe8.crc2.fill();
             Aufgabe8.crc2.stroke();
             /*Körper*/
             Aufgabe8.crc2.beginPath();
-            moveTo(_x, _y);
-            //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+            moveTo(this.x, this.y);
+            //   crc2.ellipse(this.x, this.y, 6, 4, 0, Math.PI * 2, 0); 
             Aufgabe8.crc2.closePath();
             Aufgabe8.crc2.fillStyle = this.bodycolor;
             Aufgabe8.crc2.fill();
@@ -46,7 +46,7 @@ var Aufgabe8;
             Aufgabe8.crc2.stroke();
             /*Flügel 2*/
             Aufgabe8.crc2.beginPath();
-            //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+            //        crc2.ellipse(this.x + 2, this.y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
             Aufgabe8.crc2.closePath();
             Aufgabe8.crc2.fillStyle = this.wingcolor;
             Aufgabe8.crc2.fill();

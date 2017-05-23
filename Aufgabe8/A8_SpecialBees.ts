@@ -27,7 +27,7 @@ namespace Aufgabe8 {
             super();
             console.log("Hallo, ich bin eine Biene!");
             
-            this.setStartPosition();
+//            this.setStartPosition();
             this.setTargetPosition();
             
         }

@@ -30,6 +30,7 @@ var Aufgabe8;
             }
             else {
                 let primrose = new Aufgabe8.Primrose(randomX, randomY);
+                primrose.draw();
             }
             console.log("Neue Blume gepflanzt");
         }
@@ -38,18 +39,24 @@ var Aufgabe8;
             let randomX = Math.floor(Math.random() * 420 + 20);
             let randomY = Math.floor(Math.random() * 250 + 260);
             let nectarFlowers = new Aufgabe8.Sunflower(randomX, randomY);
+            nectarFlowers.draw();
             Aufgabe8.blumen[i] = nectarFlowers;
             Aufgabe8.blumen.push(nectarFlowers);
+            console.log("Nectar-Flower gepflanzt");
         }
         console.log(Aufgabe8.blumen);
         imgData = Aufgabe8.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < n; i++) {
-            let b = new Aufgabe8.NormalBees();
-            beePositions[i] = b;
-            let s = new Aufgabe8.SpecialBees();
-            beePositions[i] = s;
-        }
-        window.setTimeout(animate, 30);
+        //        for (let i: number = 0; i < n; i++) {
+        //
+        //            let b: NormalBees = new NormalBees(665, 345, "black", "white");
+        //            beePositions[i] = b;
+        //            b.draw();
+        ////            let s: SpecialBees = new SpecialBees();
+        ////            bees[i] = s;
+        //            
+        //     
+        //       }
+        //        window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
     }
@@ -58,26 +65,6 @@ var Aufgabe8;
         let anotherBee = new Aufgabe8.Bees;
         beePositions.push(anotherBee);
         n++;
-    }
-    function animate() {
-        Aufgabe8.crc2.putImageData(imgData, 0, 0);
-        for (let i = 0; i < n; i++) {
-            let b = beePositions[i];
-            if (b.x > 801) {
-                b.x = 0;
-            }
-            if (b.x < 0) {
-                b.x = 800;
-            }
-            if (b.y > 500) {
-                b.y = 0;
-            }
-            if (b.y < 0) {
-                b.y = 500;
-            }
-            b.updatePosition();
-        }
-        window.setTimeout(animate, 20);
     }
 })(Aufgabe8 || (Aufgabe8 = {}));
 //# sourceMappingURL=A8_Main.js.map

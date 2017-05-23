@@ -13,7 +13,7 @@ namespace Aufgabe8 {
     export let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let n: number = 10;
-   export let blumen: Blumen[] = [];
+    export let blumen: Blumen[] = [];
 
 
     let beePositions: Bees[] = [];
@@ -41,20 +41,25 @@ namespace Aufgabe8 {
             }
             else {
                 let primrose: Primrose = new Primrose(randomX, randomY);
+                primrose.draw();
             }
-            
+
             console.log("Neue Blume gepflanzt");
         }
 
+
+
         /* nectarFlowers */
         for (let i: number = 0; i < 3; i++) {
-            
+
             let randomX: number = Math.floor(Math.random() * 420 + 20);
             let randomY: number = Math.floor(Math.random() * 250 + 260);
-            
+
             let nectarFlowers: Sunflower = new Sunflower(randomX, randomY);
+            nectarFlowers.draw();
             blumen[i] = nectarFlowers;
             blumen.push(nectarFlowers);
+            console.log("Nectar-Flower gepflanzt");
 
         }
         console.log(blumen);
@@ -65,19 +70,21 @@ namespace Aufgabe8 {
 
 
 
-        for (let i: number = 0; i < n; i++) {
-
-            let b: NormalBees = new NormalBees();
-            beePositions[i] = b;
-            let s: SpecialBees = new SpecialBees();
-            beePositions[i] = s;
-            
-       }
+        //        for (let i: number = 0; i < n; i++) {
+        //
+        //            let b: NormalBees = new NormalBees(665, 345, "black", "white");
+        //            beePositions[i] = b;
+        //            b.draw();
+        ////            let s: SpecialBees = new SpecialBees();
+        ////            bees[i] = s;
+        //            
+        //     
+        //       }
         
 
 
 
-        window.setTimeout(animate, 30);
+        //        window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
 
@@ -94,35 +101,35 @@ namespace Aufgabe8 {
     }
 
 
-    function animate(): void {
-
-        crc2.putImageData(imgData, 0, 0);
-
-        for (let i: number = 0; i < n; i++) {
-
-
-            let b: Bees = beePositions[i];
-
-            if (b.x > 801) {
-                b.x = 0;
-            }
-            if (b.x < 0) {
-                b.x = 800;
-            }
-            if (b.y > 500) {
-                b.y = 0;
-            }
-            if (b.y < 0) {
-                b.y = 500;
-            }
-
-            b.updatePosition();
-
-        }
-
-        window.setTimeout(animate, 20);
-
-    }
+    //    function animate(): void {
+    //
+    //        crc2.putImageData(imgData, 0, 0);
+    //
+    //        for (let i: number = 0; i < n; i++) {
+    //
+    //
+    //            let b: Bees = beePositions[i];
+    //
+    //            if (b.x > 801) {
+    //                b.x = 0;
+    //            }
+    //            if (b.x < 0) {
+    //                b.x = 800;
+    //            }
+    //            if (b.y > 500) {
+    //                b.y = 0;
+    //            }
+    //            if (b.y < 0) {
+    //                b.y = 500;
+    //            }
+    //
+    //            b.updatePosition();
+    //
+    //        }
+    //
+    //        window.setTimeout(animate, 20);
+    //
+    //    }
 
 
 
