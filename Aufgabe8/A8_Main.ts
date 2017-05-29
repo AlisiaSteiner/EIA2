@@ -70,21 +70,19 @@ namespace Aufgabe8 {
 
 
 
-        //        for (let i: number = 0; i < n; i++) {
-        //
-        //            let b: NormalBees = new NormalBees(665, 345, "black", "white");
-        //            beePositions[i] = b;
-        //            b.draw();
-        ////            let s: SpecialBees = new SpecialBees();
-        ////            bees[i] = s;
-        //            
-        //     
-        //       }
-        
+        for (let i: number = 0; i < n; i++) {
+            let b: NormalBees = new NormalBees(665, 345);
+            beePositions.push(b);
+            let s: SpecialBees = new SpecialBees(665, 345);
+            beePositions.push(s);
+
+
+        }
 
 
 
-        //        window.setTimeout(animate, 30);
+
+//        window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
 
@@ -95,7 +93,7 @@ namespace Aufgabe8 {
     function drawAnotherBee(): void {
 
         console.log("Another Bee went on a flight!");
-        let anotherBee: Bees = new Bees;
+        let anotherBee: Bees = new NormalBees(665, 345);
         beePositions.push(anotherBee);
         n++;
     }

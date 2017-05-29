@@ -25,7 +25,7 @@ export class Bees {
         
         console.log("Hallo, ich bin eine Biene!");
         
-        this.draw(this.x, this.y);
+        this.draw();
         
         } 
     
@@ -33,11 +33,11 @@ export class Bees {
             
             
             this.move();
-            this.draw(this.x, this.y);
+            this.draw();
         
             }
     
-    draw(_x: number, _y: number): void { }
+    draw(): void { }
     
     
          

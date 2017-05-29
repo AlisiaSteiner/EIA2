@@ -13,13 +13,13 @@ var Aufgabe8;
     class Bees {
         constructor() {
             console.log("Hallo, ich bin eine Biene!");
-            this.draw(this.x, this.y);
+            this.draw();
         }
         updatePosition() {
             this.move();
-            this.draw(this.x, this.y);
+            this.draw();
         }
-        draw(_x, _y) { }
+        draw() { }
         move() {
         }
     }

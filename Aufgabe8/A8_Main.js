@@ -46,23 +46,19 @@ var Aufgabe8;
         }
         console.log(Aufgabe8.blumen);
         imgData = Aufgabe8.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        //        for (let i: number = 0; i < n; i++) {
-        //
-        //            let b: NormalBees = new NormalBees(665, 345, "black", "white");
-        //            beePositions[i] = b;
-        //            b.draw();
-        ////            let s: SpecialBees = new SpecialBees();
-        ////            bees[i] = s;
-        //            
-        //     
-        //       }
+        for (let i = 0; i < n; i++) {
+            let b = new Aufgabe8.NormalBees(665, 345);
+            beePositions.push(b);
+            let s = new Aufgabe8.SpecialBees(665, 345);
+            beePositions.push(s);
+        }
         //        window.setTimeout(animate, 30);
         canvas.addEventListener("click", drawAnotherBee);
         canvas.addEventListener("touch", drawAnotherBee);
     }
     function drawAnotherBee() {
         console.log("Another Bee went on a flight!");
-        let anotherBee = new Aufgabe8.Bees;
+        let anotherBee = new Aufgabe8.NormalBees(665, 345);
         beePositions.push(anotherBee);
         n++;
     }

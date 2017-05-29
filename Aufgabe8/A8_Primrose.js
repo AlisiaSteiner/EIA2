@@ -13,6 +13,8 @@ var Aufgabe8;
     class Primrose extends Aufgabe8.Blumen {
         constructor(_x, _y) {
             super();
+            this.x = _x;
+            this.y = _y;
             this.draw();
         }
         draw() {

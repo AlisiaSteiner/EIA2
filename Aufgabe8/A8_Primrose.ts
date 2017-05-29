@@ -22,6 +22,8 @@ nicht kopiert und auch nicht diktiert.
         constructor(_x: number, _y: number) {
             super();
             
+            this.x = _x;
+            this.y = _y;
             this.draw();
             }
             

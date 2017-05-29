@@ -23,12 +23,14 @@ namespace Aufgabe8 {
         wingcolor: string;
 
 
-        constructor(x: number, y: number, bodycolor: string, wingcolor: string) {
+        constructor(_x: number, _y: number) {
 
             super();
-//            this.setStartPosition();
-//            this.setRandomColors();
 
+            this.x = _x;
+            this.y = _y;
+            this.setRandomColors();            
+         
             this.draw();
         }
 
@@ -74,12 +76,6 @@ namespace Aufgabe8 {
 
         }
 
-        setStartPosition(): void {
-
-            this.x = 665;
-            this.y = 345;
-
-        }
 
         setRandomColors(): void {
 

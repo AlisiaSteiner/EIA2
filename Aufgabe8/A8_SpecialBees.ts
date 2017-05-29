@@ -22,13 +22,17 @@ namespace Aufgabe8 {
         yTarget: number;
 
 
-        constructor() {
+        constructor(_x: number, _y: number) {
 
             super();
-            console.log("Hallo, ich bin eine Biene!");
+            console.log("Ich bin aber speziell");
             
-//            this.setStartPosition();
+            this.x = _x;
+            this.y = _y;
+            
+            this.setStartPosition();
             this.setTargetPosition();
+            this.draw();
             
         }
 
@@ -41,9 +45,9 @@ namespace Aufgabe8 {
 
         setTargetPosition(): void {
 
-            let targetflower: number = Math.round(Math.random() * (Blumen.length - 1));
-            this.xTarget = Blumen[targetflower].x;
-            this.yTarget = Blumen[targetflower].y;
+            let targetflower: number = Math.round(Math.random() * (blumen.length - 1));
+            this.xTarget = blumen[targetflower].x;
+            this.yTarget = blumen[targetflower].y;
         }
 
 
@@ -60,21 +64,21 @@ namespace Aufgabe8 {
             }
         }
         
-                draw(_x: number, _y: number): void {
+                draw(): void {
 
             /*Flügel 1*/
             crc2.beginPath();
-            //        crc2.ellipse(_x, _y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
+            //        crc2.ellipse(this.x, this.y - 5, 2, 4, 45 * Math.PI/-150, Math.PI * 2, 0);
             crc2.closePath();
             crc2.fillStyle = this.wingcolor;
             crc2.fill();
 
             /*Stachel*/
             crc2.beginPath();
-            crc2.moveTo(_x + 5, _y - 1);
-            crc2.lineTo(_x + 10, _y + 0.5);
-            crc2.lineTo(_x + 5, _y + 2);
-            crc2.lineTo(_x + 5, _y);
+            crc2.moveTo(this.x + 5, this.y - 1);
+            crc2.lineTo(this.x + 10, this.y + 0.5);
+            crc2.lineTo(this.x + 5, this.y + 2);
+            crc2.lineTo(this.x + 5, this.y);
             crc2.closePath();
             crc2.fillStyle = "black";
             crc2.fill();
@@ -83,8 +87,8 @@ namespace Aufgabe8 {
             /*Körper*/
 
             crc2.beginPath();
-            moveTo(_x, _y);
-            //   crc2.ellipse(_x, _y, 6, 4, 0, Math.PI * 2, 0); 
+            moveTo(this.x, this.y);
+            //   crc2.ellipse(this.x, this.y, 6, 4, 0, Math.PI * 2, 0); 
             crc2.closePath();
             crc2.fillStyle = this.bodycolor;
             crc2.fill();
@@ -94,7 +98,7 @@ namespace Aufgabe8 {
             /*Flügel 2*/
 
             crc2.beginPath();
-            //        crc2.ellipse(_x + 2, _y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
+            //        crc2.ellipse(this.x + 2, this.y - 5, 2, 4, 45 * Math.PI/180, Math.PI * 2, 0);
             crc2.closePath();
             crc2.fillStyle = this.wingcolor;
             crc2.fill();

@@ -12,10 +12,11 @@ nicht kopiert und auch nicht diktiert.
 var Aufgabe8;
 (function (Aufgabe8) {
     class NormalBees extends Aufgabe8.Bees {
-        constructor(x, y, bodycolor, wingcolor) {
+        constructor(_x, _y) {
             super();
-            //            this.setStartPosition();
-            //            this.setRandomColors();
+            this.x = _x;
+            this.y = _y;
+            this.setRandomColors();
             this.draw();
         }
         draw() {
@@ -50,10 +51,6 @@ var Aufgabe8;
             Aufgabe8.crc2.closePath();
             Aufgabe8.crc2.fillStyle = this.wingcolor;
             Aufgabe8.crc2.fill();
-        }
-        setStartPosition() {
-            this.x = 665;
-            this.y = 345;
         }
         setRandomColors() {
             this.bodycolor = "hsl(" + Math.random() * 70 + ", 100%, 50%)";
