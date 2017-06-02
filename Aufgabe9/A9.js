@@ -16,11 +16,13 @@ var Aufgabe9;
     let kugelgröße;
     let topping;
     let kontaktdatenArray;
+    let versandart;
     art = ["Waffel", "Becher"];
     sorte = ["Schokolade", "Vanille", "Stracciatella", "Malaga", "Pistazie", "Erdbeere", "Himbeere", "Zitrone", "Melone", "Grüner Apfel"];
     kugelgröße = ["Normal", "XL"];
     topping = ["Sahne", "Schoko-Soße", "Caramell-Soße", "Schoko-Streusel", "Bunte Streusel", "Smarties", "Oreos", "Banane", "Erdbeeren", "Melone", "Himbeeren", "Heidelbeeren"];
     kontaktdatenArray = ["Name", "Vorname", "Straße", "Hausnummer", "Postleitzahl", "Ort", "Telefonnummer"];
+    versandart = ["Standard", "Express"];
     function init(_event) {
         console.log("Init");
         createFieldSetBestellung();
@@ -42,9 +44,9 @@ var Aufgabe9;
             eisartenP.textContent = art[i];
             let eisartenInput = document.createElement("input");
             eisartenInput.type = "radio";
-            eisartenInput.id = sorte[i];
+            eisartenInput.id = art[i];
             eisartenInput.value = "0";
-            eisartenInput.name = "Eisart";
+            eisartenInput.name = "Art";
             buttonLabel.appendChild(eisartenP);
             buttonLabel.appendChild(eisartenInput);
             arten.appendChild(buttonLabel);
@@ -102,6 +104,8 @@ var Aufgabe9;
     /* Übersichts-FieldSet */
     function createFieldSetÜbersicht() {
         let kontaktdaten = document.getElementById("Kontaktdaten");
+        let versandarten = document.getElementById("Versandart");
+        /* Schleife für Kontaktdaten */
         for (let i = 0; i < kontaktdatenArray.length; i++) {
             let kontaktdatenP = document.createElement("p");
             kontaktdatenP.textContent = kontaktdatenArray[i];
@@ -110,6 +114,20 @@ var Aufgabe9;
             kontaktdatenInput.id = kontaktdatenArray[i];
             kontaktdaten.appendChild(kontaktdatenP);
             kontaktdaten.appendChild(kontaktdatenInput);
+        }
+        /* Schleife für Versandarten */
+        for (let i = 0; i < versandart.length; i++) {
+            let buttonLabel = document.createElement("label");
+            let versandartP = document.createElement("p");
+            versandartP.textContent = versandart[i];
+            let versandartInput = document.createElement("input");
+            versandartInput.type = "radio";
+            versandartInput.id = versandart[i];
+            versandartInput.value = "0";
+            versandartInput.name = "Versandart";
+            buttonLabel.appendChild(versandartP);
+            buttonLabel.appendChild(versandartInput);
+            versandarten.appendChild(buttonLabel);
         }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));

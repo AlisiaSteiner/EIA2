@@ -20,6 +20,7 @@ namespace Aufgabe9 {
     let kugelgröße: string[];
     let topping: string[];
     let kontaktdatenArray: string[];
+    let versandart: string[];
 
 
     art = ["Waffel", "Becher"];
@@ -27,6 +28,7 @@ namespace Aufgabe9 {
     kugelgröße = ["Normal", "XL"];
     topping = ["Sahne", "Schoko-Soße", "Caramell-Soße", "Schoko-Streusel", "Bunte Streusel", "Smarties", "Oreos", "Banane", "Erdbeeren", "Melone", "Himbeeren", "Heidelbeeren"];
     kontaktdatenArray = ["Name", "Vorname", "Straße", "Hausnummer", "Postleitzahl", "Ort", "Telefonnummer"];
+    versandart = ["Standard", "Express"];
 
     function init(_event: Event): void {
         console.log("Init");
@@ -59,9 +61,9 @@ namespace Aufgabe9 {
 
             let eisartenInput: HTMLInputElement = document.createElement("input");
             eisartenInput.type = "radio";
-            eisartenInput.id = sorte[i];
+            eisartenInput.id = art[i];
             eisartenInput.value = "0";
-            eisartenInput.name = "Eisart";
+            eisartenInput.name = "Art";
 
             buttonLabel.appendChild(eisartenP);
             buttonLabel.appendChild(eisartenInput);
@@ -113,7 +115,7 @@ namespace Aufgabe9 {
         }
 
         /* Schleife für Topping */
-            
+
         for (let i: number = 0; i < topping.length; i++) {
 
 
@@ -134,8 +136,8 @@ namespace Aufgabe9 {
         }
 
         /* Text-Feld für Anmerkungen und Sonderwünsche    */
-        
-        
+
+
         let anmerkungenFeld: HTMLTextAreaElement = document.createElement("textarea");
         let umbruch: HTMLElement = document.createElement("br");
 
@@ -154,33 +156,58 @@ namespace Aufgabe9 {
 
     /* Übersichts-FieldSet */
 
-        function createFieldSetÜbersicht(): void {
+    function createFieldSetÜbersicht(): void {
 
 
-            let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
+        let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
+        let versandarten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Versandart");
 
-            for (let i: number = 0; i < kontaktdatenArray.length; i++) {
-
-
-                let kontaktdatenP: HTMLParagraphElement = document.createElement("p");
-                kontaktdatenP.textContent = kontaktdatenArray[i];
-
-                let kontaktdatenInput: HTMLInputElement = document.createElement("input");
-                kontaktdatenInput.type = "text";
-                kontaktdatenInput.id = kontaktdatenArray[i];
+        /* Schleife für Kontaktdaten */
+        for (let i: number = 0; i < kontaktdatenArray.length; i++) {
 
 
-                kontaktdaten.appendChild(kontaktdatenP);
-                kontaktdaten.appendChild(kontaktdatenInput);
+            let kontaktdatenP: HTMLParagraphElement = document.createElement("p");
+            kontaktdatenP.textContent = kontaktdatenArray[i];
+
+            let kontaktdatenInput: HTMLInputElement = document.createElement("input");
+            kontaktdatenInput.type = "text";
+            kontaktdatenInput.id = kontaktdatenArray[i];
 
 
-            }
-
-            }
-
-
-    
-    
-
+            kontaktdaten.appendChild(kontaktdatenP);
+            kontaktdaten.appendChild(kontaktdatenInput);
 
         }
+
+        /* Schleife für Versandarten */
+
+        for (let i: number = 0; i < versandart.length; i++) {
+
+            let buttonLabel: HTMLLabelElement = document.createElement("label");
+
+            let versandartP: HTMLParagraphElement = document.createElement("p");
+            versandartP.textContent = versandart[i];
+
+            let versandartInput: HTMLInputElement = document.createElement("input");
+            versandartInput.type = "radio";
+            versandartInput.id = versandart[i];
+            versandartInput.value = "0";
+            versandartInput.name = "Versandart";
+
+            buttonLabel.appendChild(versandartP);
+            buttonLabel.appendChild(versandartInput);
+
+            versandarten.appendChild(buttonLabel);
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+}
