@@ -11,7 +11,8 @@ nicht kopiert und auch nicht diktiert.
 
 
 body { font-family: 'Bubbler One', sans-serif;
-			color: black;}
+			color: black;
+			text-align: center;}
 
 #Bestellung {
 			width: 40%;
@@ -28,6 +29,10 @@ body { font-family: 'Bubbler One', sans-serif;
 			border: 1px solid purple;
 			
 }
+
+h1 { font-style: bold;
+	  color: puple;
+	  text-align: center;}
 
 /* Ansprache über ID funktioniert nicht bei allen Fieldsets? */
 
