@@ -8,6 +8,7 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
+/* Da es mir die Tage nicht wirklich gut ging und ich mich schlecht konzentrieren kann, ist der Code sehr unvollständig. Leider funktioniert auch Css nicht wirklich. */
 var Aufgabe9;
 (function (Aufgabe9) {
     window.addEventListener("load", init);
@@ -160,7 +161,10 @@ var Aufgabe9;
     }
     /* Change Funktion bei Änderung der Werte */
     function change() {
-        console.log("Veränderung erkannt");
+        let summe = 0;
+        let art = document.getElementById("Waffel");
+        summe += parseInt(art.value);
+        console.log("Veränderung erkannt", summe);
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=A9.js.map

@@ -11,6 +11,7 @@ nicht kopiert und auch nicht diktiert.
 
 
 
+/* Da es mir die Tage nicht wirklich gut ging und ich mich schlecht konzentrieren kann, ist der Code sehr unvollständig. Leider funktioniert auch Css nicht wirklich. */ 
 namespace Aufgabe9 {
 
     window.addEventListener("load", init);
@@ -21,6 +22,7 @@ namespace Aufgabe9 {
     let topping: string[];
     let kontaktdatenArray: string[];
     let versandart: string[];
+    
 
 
     art = ["Waffel", "Becher"];
@@ -86,6 +88,7 @@ namespace Aufgabe9 {
             let eisartenInput: HTMLInputElement = document.createElement("input");
             eisartenInput.type = "radio";
             eisartenInput.id = art[i];
+            
             eisartenInput.value = "0";
             eisartenInput.name = "Art";
 
@@ -248,10 +251,14 @@ namespace Aufgabe9 {
     
     function change(): void {
         
+        let summe: number = 0;
+        let art: HTMLInputElement = <HTMLInputElement>document.getElementById("Waffel");
         
-        console.log("Veränderung erkannt");
+                    
+        summe += parseInt(art.value);
+        console.log("Veränderung erkannt", summe);
         }
 
 
-
+       
 }
