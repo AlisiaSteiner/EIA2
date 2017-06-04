@@ -30,16 +30,9 @@ namespace Aufgabe9 {
     kontaktdatenArray = ["Name", "Vorname", "Straße", "Hausnummer", "Postleitzahl", "Ort", "Telefonnummer"];
     versandart = ["Standard", "Express"];
 
-    function init(_event: Event): void {
-        console.log("Init");
-        createFieldSetBestellung();
-        createFieldSetÜbersicht();
 
-    }
-
-    /* Bestellungs-FieldSet */
-    function createFieldSetBestellung(): void {
-
+    
+    
         let fieldSetBestellung: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Bestellung");
         let arten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Art");
         let sorten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Sorten");
@@ -47,8 +40,39 @@ namespace Aufgabe9 {
         let toppings: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Topping");
         let anmerkungen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Anmerkungen");
         let fieldSetÜbersicht: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Übersicht");
+        let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
+        let versandarten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Versandart");
 
+    
 
+    function init(_event: Event): void {
+        console.log("Init");
+        createFieldSetBestellung();
+        createFieldSetÜbersicht();
+
+        let sendeButton: HTMLElement = document.getElementById("BestellButton");
+        sendeButton.addEventListener("click", bestellungSenden);
+        arten.addEventListener("change", change);
+        sorten.addEventListener("change", change);
+        kugelgrößen.addEventListener("change", change);
+        toppings.addEventListener("change", change);
+        anmerkungen.addEventListener("change", change);
+        versandarten.addEventListener("change", change);   
+        
+
+    }
+
+    /* Bestellungs-FieldSet */
+    function createFieldSetBestellung(): void {
+
+        
+        let fieldSetBestellung: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Bestellung");
+        let arten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Art");
+        let sorten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Sorten");
+        let kugelgrößen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kugelgrößen");
+        let toppings: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Topping");
+        let anmerkungen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Anmerkungen");
+        let fieldSetÜbersicht: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Übersicht");
         /* Schleife für Art */
 
 
@@ -203,10 +227,30 @@ namespace Aufgabe9 {
 
     }
 
+    /* Prüfung der Input-Werte: Überprüfung von Postleitzahl, Telefonnummer, Name + sind Art, Versandart, Kugelgröße ausgewählt? */
+
+    function bestellungSenden(): void {
+
+        let name: HTMLInputElement = <HTMLInputElement>document.getElementById("Name");
+        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Vorname");
+        let straße: HTMLInputElement = <HTMLInputElement>document.getElementById("Straße");
+        let hausnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("Hausnummer");
+        let postleitzahl: HTMLInputElement = <HTMLInputElement>document.getElementById("Postleitzahl");
+        let ort: HTMLInputElement = <HTMLInputElement>document.getElementById("Ort");
+        let telefonnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefonnummer");
+
+        console.log("Button gedrückt");
+
+    }
 
 
-
-
+/* Change Funktion bei Änderung der Werte */
+    
+    function change(): void {
+        
+        
+        console.log("Veränderung erkannt");
+        }
 
 
 

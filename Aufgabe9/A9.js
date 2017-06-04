@@ -23,10 +23,27 @@ var Aufgabe9;
     topping = ["Sahne", "Schoko-Soße", "Caramell-Soße", "Schoko-Streusel", "Bunte Streusel", "Smarties", "Oreos", "Banane", "Erdbeeren", "Melone", "Himbeeren", "Heidelbeeren"];
     kontaktdatenArray = ["Name", "Vorname", "Straße", "Hausnummer", "Postleitzahl", "Ort", "Telefonnummer"];
     versandart = ["Standard", "Express"];
+    let fieldSetBestellung = document.getElementById("Bestellung");
+    let arten = document.getElementById("Art");
+    let sorten = document.getElementById("Sorten");
+    let kugelgrößen = document.getElementById("Kugelgrößen");
+    let toppings = document.getElementById("Topping");
+    let anmerkungen = document.getElementById("Anmerkungen");
+    let fieldSetÜbersicht = document.getElementById("Übersicht");
+    let kontaktdaten = document.getElementById("Kontaktdaten");
+    let versandarten = document.getElementById("Versandart");
     function init(_event) {
         console.log("Init");
         createFieldSetBestellung();
         createFieldSetÜbersicht();
+        let sendeButton = document.getElementById("BestellButton");
+        sendeButton.addEventListener("click", bestellungSenden);
+        arten.addEventListener("change", change);
+        sorten.addEventListener("change", change);
+        kugelgrößen.addEventListener("change", change);
+        toppings.addEventListener("change", change);
+        anmerkungen.addEventListener("change", change);
+        versandarten.addEventListener("change", change);
     }
     /* Bestellungs-FieldSet */
     function createFieldSetBestellung() {
@@ -129,6 +146,21 @@ var Aufgabe9;
             buttonLabel.appendChild(versandartInput);
             versandarten.appendChild(buttonLabel);
         }
+    }
+    /* Prüfung der Input-Werte: Überprüfung von Postleitzahl, Telefonnummer, Name + sind Art, Versandart, Kugelgröße ausgewählt? */
+    function bestellungSenden() {
+        let name = document.getElementById("Name");
+        let vorname = document.getElementById("Vorname");
+        let straße = document.getElementById("Straße");
+        let hausnummer = document.getElementById("Hausnummer");
+        let postleitzahl = document.getElementById("Postleitzahl");
+        let ort = document.getElementById("Ort");
+        let telefonnummer = document.getElementById("Telefonnummer");
+        console.log("Button gedrückt");
+    }
+    /* Change Funktion bei Änderung der Werte */
+    function change() {
+        console.log("Veränderung erkannt");
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=A9.js.map
