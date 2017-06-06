@@ -12,22 +12,37 @@ nicht kopiert und auch nicht diktiert.
 
 body { font-family: 'Bubbler One', sans-serif;
 			color: black;
-			text-align: center;}
+			text-align: center;
+		}
 
 #Bestellung {
-			width: 40%;
+			width: 50%;
+			margin-right: 24%;
+			margin-left: 24%;
 			border: 1px solid purple;
 			
 }
 #Kontakdaten { 
-			width: 40%;
+			margin-right: 24%;
+			margin-left: 24%;
+			width: 50%;
 			border: 1px solid purple;
 			
 }
 #Versandart { 
-			width: 40%;
+			margin-right: 24%;
+			margin-left: 24%;
+			width: 50%;
 			border: 1px solid purple;
 			
+}
+
+#Übersicht {
+			width: 50%;
+			margin-right: 24%;
+			margin-left: 24%;
+			background-color: blue;
+			border: 1px solid purple;
 }
 
 h1 { font-style: bold;
@@ -36,11 +51,7 @@ h1 { font-style: bold;
 
 /* Ansprache über ID funktioniert nicht bei allen Fieldsets? */
 
-fieldset { 
-			width: 40%;
-			border: 1px solid purple;
-			
-}
+
 
 fieldset > p {
 			font-style: bold;

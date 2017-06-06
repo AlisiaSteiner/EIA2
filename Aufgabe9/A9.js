@@ -8,7 +8,6 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-/* Da es mir die Tage nicht wirklich gut ging und ich mich schlecht konzentrieren kann, ist der Code sehr unvollständig. Leider funktioniert auch Css nicht wirklich. */
 var Aufgabe9;
 (function (Aufgabe9) {
     window.addEventListener("load", init);
@@ -18,6 +17,12 @@ var Aufgabe9;
     let topping;
     let kontaktdatenArray;
     let versandart;
+    let artInputs = [];
+    let sorteInputs = [];
+    let kugelgrößeInputs = [];
+    let toppingInputs = [];
+    let kontaktdatenInputs = [];
+    let versandartInputs = [];
     art = ["Waffel", "Becher"];
     sorte = ["Schokolade", "Vanille", "Stracciatella", "Malaga", "Pistazie", "Erdbeere", "Himbeere", "Zitrone", "Melone", "Grüner Apfel"];
     kugelgröße = ["Normal", "XL"];
@@ -33,11 +38,11 @@ var Aufgabe9;
     let fieldSetÜbersicht = document.getElementById("Übersicht");
     let kontaktdaten = document.getElementById("Kontaktdaten");
     let versandarten = document.getElementById("Versandart");
-    function init(_event) {
+    let sendeButton = document.getElementById("BestellButton");
+    function init() {
         console.log("Init");
         createFieldSetBestellung();
         createFieldSetÜbersicht();
-        let sendeButton = document.getElementById("BestellButton");
         sendeButton.addEventListener("click", bestellungSenden);
         arten.addEventListener("change", change);
         sorten.addEventListener("change", change);
@@ -45,6 +50,8 @@ var Aufgabe9;
         toppings.addEventListener("change", change);
         anmerkungen.addEventListener("change", change);
         versandarten.addEventListener("change", change);
+        console.log(artInputs);
+        console.log("teste");
     }
     /* Bestellungs-FieldSet */
     function createFieldSetBestellung() {
@@ -68,6 +75,7 @@ var Aufgabe9;
             buttonLabel.appendChild(eisartenP);
             buttonLabel.appendChild(eisartenInput);
             arten.appendChild(buttonLabel);
+            artInputs.push(eisartenInput);
         }
         /* Schleife für Sorte */
         for (let i = 0; i < sorte.length; i++) {
@@ -81,6 +89,7 @@ var Aufgabe9;
             eissortenInput.value = "0";
             sorten.appendChild(eissortenP);
             sorten.appendChild(eissortenInput);
+            sorteInputs.push(eissortenInput);
         }
         /* Schleife für Kugelgröße */
         for (let i = 0; i < kugelgröße.length; i++) {
@@ -95,6 +104,7 @@ var Aufgabe9;
             buttonLabel.appendChild(eisgrößenP);
             buttonLabel.appendChild(eisgrößenInput);
             kugelgrößen.appendChild(buttonLabel);
+            kugelgrößeInputs.push(eisgrößenInput);
         }
         /* Schleife für Topping */
         for (let i = 0; i < topping.length; i++) {
@@ -108,6 +118,7 @@ var Aufgabe9;
             toppingInput.value = "0";
             toppings.appendChild(toppingP);
             toppings.appendChild(toppingInput);
+            toppingInputs.push(toppingInput);
         }
         /* Text-Feld für Anmerkungen und Sonderwünsche    */
         let anmerkungenFeld = document.createElement("textarea");
@@ -132,6 +143,7 @@ var Aufgabe9;
             kontaktdatenInput.id = kontaktdatenArray[i];
             kontaktdaten.appendChild(kontaktdatenP);
             kontaktdaten.appendChild(kontaktdatenInput);
+            kontaktdatenInputs.push(kontaktdatenInput);
         }
         /* Schleife für Versandarten */
         for (let i = 0; i < versandart.length; i++) {
@@ -146,6 +158,7 @@ var Aufgabe9;
             buttonLabel.appendChild(versandartP);
             buttonLabel.appendChild(versandartInput);
             versandarten.appendChild(buttonLabel);
+            versandartInputs.push(versandartInput);
         }
     }
     /* Prüfung der Input-Werte: Überprüfung von Postleitzahl, Telefonnummer, Name + sind Art, Versandart, Kugelgröße ausgewählt? */
@@ -162,9 +175,29 @@ var Aufgabe9;
     /* Change Funktion bei Änderung der Werte */
     function change() {
         let summe = 0;
-        let art = document.getElementById("Waffel");
-        summe += parseInt(art.value);
-        console.log("Veränderung erkannt", summe);
+        let bestellübersicht = document.getElementById("Bestellübersicht");
+        bestellübersicht.innerText = "";
+        for (let i = 0; i < artInputs.length; i++) {
+            if (kugelgrößeInputs[i].checked) {
+                bestellübersicht.innerText += art[i] + " " + "\n";
+            }
+            console.log("j");
+        }
+        for (let i = 0; i < sorteInputs.length; i++) {
+            if (parseInt(sorteInputs[i].value) > 0) {
+                bestellübersicht.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
+            }
+        }
+        for (let i = 0; i < kugelgrößeInputs.length; i++) {
+            if (kugelgrößeInputs[i].checked) {
+                bestellübersicht.innerText += kugelgröße[i] + " " + "\n";
+            }
+        }
+        for (let i = 0; i < toppingInputs.length; i++) {
+            if (parseInt(toppingInputs[i].value) > 0) {
+                bestellübersicht.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
+            }
+        }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=A9.js.map

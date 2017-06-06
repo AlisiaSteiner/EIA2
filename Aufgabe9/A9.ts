@@ -11,11 +11,11 @@ nicht kopiert und auch nicht diktiert.
 
 
 
-/* Da es mir die Tage nicht wirklich gut ging und ich mich schlecht konzentrieren kann, ist der Code sehr unvollständig. Leider funktioniert auch Css nicht wirklich. */ 
 namespace Aufgabe9 {
 
-    window.addEventListener("load", init);
+     window.addEventListener("load", init);
 
+    
     let art: string[];
     let sorte: string[];
     let kugelgröße: string[];
@@ -23,7 +23,12 @@ namespace Aufgabe9 {
     let kontaktdatenArray: string[];
     let versandart: string[];
     
-
+    let artInputs: HTMLInputElement[] = [];
+    let sorteInputs: HTMLInputElement[] = [];
+    let kugelgrößeInputs: HTMLInputElement[] = [];
+    let toppingInputs: HTMLInputElement[] = [];
+    let kontaktdatenInputs: HTMLInputElement[] = [];
+    let versandartInputs: HTMLInputElement[] = [];
 
     art = ["Waffel", "Becher"];
     sorte = ["Schokolade", "Vanille", "Stracciatella", "Malaga", "Pistazie", "Erdbeere", "Himbeere", "Zitrone", "Melone", "Grüner Apfel"];
@@ -44,15 +49,16 @@ namespace Aufgabe9 {
         let fieldSetÜbersicht: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Übersicht");
         let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
         let versandarten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Versandart");
+        let sendeButton: HTMLElement = document.getElementById("BestellButton");
 
     
 
-    function init(_event: Event): void {
+    function init(): void {
         console.log("Init");
         createFieldSetBestellung();
         createFieldSetÜbersicht();
 
-        let sendeButton: HTMLElement = document.getElementById("BestellButton");
+        
         sendeButton.addEventListener("click", bestellungSenden);
         arten.addEventListener("change", change);
         sorten.addEventListener("change", change);
@@ -61,6 +67,9 @@ namespace Aufgabe9 {
         anmerkungen.addEventListener("change", change);
         versandarten.addEventListener("change", change);   
         
+        
+        console.log(artInputs);
+        console.log("teste");
 
     }
 
@@ -96,6 +105,8 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(eisartenInput);
 
             arten.appendChild(buttonLabel);
+            
+            artInputs.push(eisartenInput);
         }
 
         /* Schleife für Sorte */
@@ -116,7 +127,7 @@ namespace Aufgabe9 {
 
             sorten.appendChild(eissortenP);
             sorten.appendChild(eissortenInput);
-
+            sorteInputs.push(eissortenInput);
 
         }
 
@@ -139,6 +150,8 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(eisgrößenInput);
 
             kugelgrößen.appendChild(buttonLabel);
+            
+            kugelgrößeInputs.push(eisgrößenInput);
         }
 
         /* Schleife für Topping */
@@ -159,7 +172,7 @@ namespace Aufgabe9 {
             toppings.appendChild(toppingP);
             toppings.appendChild(toppingInput);
 
-
+            toppingInputs.push(toppingInput);
         }
 
         /* Text-Feld für Anmerkungen und Sonderwünsche    */
@@ -204,6 +217,7 @@ namespace Aufgabe9 {
             kontaktdaten.appendChild(kontaktdatenP);
             kontaktdaten.appendChild(kontaktdatenInput);
 
+            kontaktdatenInputs.push(kontaktdatenInput);
         }
 
         /* Schleife für Versandarten */
@@ -225,6 +239,8 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(versandartInput);
 
             versandarten.appendChild(buttonLabel);
+            
+            versandartInputs.push(versandartInput);
         }
 
 
@@ -243,6 +259,7 @@ namespace Aufgabe9 {
         let telefonnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefonnummer");
 
         console.log("Button gedrückt");
+        
 
     }
 
@@ -251,12 +268,35 @@ namespace Aufgabe9 {
     
     function change(): void {
         
-        let summe: number = 0;
-        let art: HTMLInputElement = <HTMLInputElement>document.getElementById("Waffel");
+        let summe: number = 0;       
+        let bestellübersicht: HTMLElement = document.getElementById("Bestellübersicht");
+        bestellübersicht.innerText = "";
+
+        for (let i: number = 0; i < artInputs.length; i++) {
+           if (kugelgrößeInputs[i].checked) {
+                bestellübersicht.innerText += art[i] + " " + "\n";
+            }
+               console.log("j");
+            }
         
-                    
-        summe += parseInt(art.value);
-        console.log("Veränderung erkannt", summe);
+        for (let i: number = 0; i < sorteInputs.length; i++) {
+            if (parseInt(sorteInputs[i].value) > 0) {
+                bestellübersicht.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
+            }
+        }
+        for (let i: number = 0; i < kugelgrößeInputs.length; i++) {
+            if (kugelgrößeInputs[i].checked) {
+                bestellübersicht.innerText += kugelgröße[i] + " " + "\n";
+            }
+        }
+        for (let i: number = 0; i < toppingInputs.length; i++) {
+            if (parseInt(toppingInputs[i].value) > 0) {
+                bestellübersicht.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
+            }
+        }
+        
+        
+        
         }
 
 
