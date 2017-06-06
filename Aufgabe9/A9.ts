@@ -13,16 +13,16 @@ nicht kopiert und auch nicht diktiert.
 
 namespace Aufgabe9 {
 
-     window.addEventListener("load", init);
+    window.addEventListener("load", init);
 
-    
+
     let art: string[];
     let sorte: string[];
     let kugelgröße: string[];
     let topping: string[];
     let kontaktdatenArray: string[];
     let versandart: string[];
-    
+
     let artInputs: HTMLInputElement[] = [];
     let sorteInputs: HTMLInputElement[] = [];
     let kugelgrößeInputs: HTMLInputElement[] = [];
@@ -38,45 +38,46 @@ namespace Aufgabe9 {
     versandart = ["Standard", "Express"];
 
 
-    
-    
-        let fieldSetBestellung: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Bestellung");
-        let arten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Art");
-        let sorten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Sorten");
-        let kugelgrößen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kugelgrößen");
-        let toppings: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Topping");
-        let anmerkungen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Anmerkungen");
-        let fieldSetÜbersicht: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Übersicht");
-        let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
-        let versandarten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Versandart");
-        let sendeButton: HTMLElement = document.getElementById("BestellButton");
 
-    
+
+    let fieldSetBestellung: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Bestellung");
+    let arten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Art");
+    let sorten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Sorten");
+    let kugelgrößen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kugelgrößen");
+    let toppings: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Topping");
+    let anmerkungen: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Anmerkungen");
+    let fieldSetÜbersicht: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Übersicht");
+    let kontaktdaten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Kontaktdaten");
+    let versandarten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Versandart");
+    let sendeButton: HTMLElement = document.getElementById("BestellButton");
+
+    let anmerkungenInput: HTMLInputElement = <HTMLInputElement>document.getElementById("Anmerkungen");
+
+
 
     function init(): void {
         console.log("Init");
         createFieldSetBestellung();
         createFieldSetÜbersicht();
 
-        
+
         sendeButton.addEventListener("click", bestellungSenden);
         arten.addEventListener("change", change);
         sorten.addEventListener("change", change);
         kugelgrößen.addEventListener("change", change);
         toppings.addEventListener("change", change);
         anmerkungen.addEventListener("change", change);
-        versandarten.addEventListener("change", change);   
-        
-        
-        console.log(artInputs);
-        console.log("teste");
+        versandarten.addEventListener("change", change);
+
+
+
 
     }
 
     /* Bestellungs-FieldSet */
     function createFieldSetBestellung(): void {
 
-        
+
         let fieldSetBestellung: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Bestellung");
         let arten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Art");
         let sorten: HTMLFieldSetElement = <HTMLFieldSetElement>document.getElementById("Sorten");
@@ -97,7 +98,7 @@ namespace Aufgabe9 {
             let eisartenInput: HTMLInputElement = document.createElement("input");
             eisartenInput.type = "radio";
             eisartenInput.id = art[i];
-            
+
             eisartenInput.value = "0";
             eisartenInput.name = "Art";
 
@@ -105,7 +106,7 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(eisartenInput);
 
             arten.appendChild(buttonLabel);
-            
+
             artInputs.push(eisartenInput);
         }
 
@@ -150,7 +151,7 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(eisgrößenInput);
 
             kugelgrößen.appendChild(buttonLabel);
-            
+
             kugelgrößeInputs.push(eisgrößenInput);
         }
 
@@ -185,6 +186,7 @@ namespace Aufgabe9 {
         anmerkungenFeld.cols = 30;
         anmerkungenFeld.rows = 4;
         anmerkungenFeld.placeholder = "Beschreiben Sie hier Ihre Sonderwünsche....";
+        anmerkungenFeld.id = "Anmerkungen";
 
         anmerkungen.appendChild(umbruch);
         anmerkungen.appendChild(anmerkungenFeld);
@@ -239,7 +241,7 @@ namespace Aufgabe9 {
             buttonLabel.appendChild(versandartInput);
 
             versandarten.appendChild(buttonLabel);
-            
+
             versandartInputs.push(versandartInput);
         }
 
@@ -259,46 +261,82 @@ namespace Aufgabe9 {
         let telefonnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefonnummer");
 
         console.log("Button gedrückt");
-        
+
 
     }
 
 
-/* Change Funktion bei Änderung der Werte */
-    
+    /* Change Funktion bei Änderung der Werte     */
     function change(): void {
-        
-        let summe: number = 0;       
-        let bestellübersicht: HTMLElement = document.getElementById("Bestellübersicht");
-        bestellübersicht.innerText = "";
+
+
+        let bestellübersichtP: HTMLElement = document.getElementById("BestellübersichtP");
+        bestellübersichtP.innerText = "";
 
         for (let i: number = 0; i < artInputs.length; i++) {
-           if (kugelgrößeInputs[i].checked) {
-                bestellübersicht.innerText += art[i] + " " + "\n";
+            if (artInputs[i].checked) {
+                bestellübersichtP.innerText += art[i] + " " + "\n";
             }
-               console.log("j");
-            }
-        
+
+        }
+
         for (let i: number = 0; i < sorteInputs.length; i++) {
             if (parseInt(sorteInputs[i].value) > 0) {
-                bestellübersicht.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
+                bestellübersichtP.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
             }
         }
         for (let i: number = 0; i < kugelgrößeInputs.length; i++) {
             if (kugelgrößeInputs[i].checked) {
-                bestellübersicht.innerText += kugelgröße[i] + " " + "\n";
+                bestellübersichtP.innerText += kugelgröße[i] + " " + "\n";
             }
         }
         for (let i: number = 0; i < toppingInputs.length; i++) {
             if (parseInt(toppingInputs[i].value) > 0) {
-                bestellübersicht.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
+                bestellübersichtP.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
             }
         }
-        
-        
-        
+
+        if (parseInt(anmerkungenInput.value) > 0) {
+
+            bestellübersichtP.innerText += "Anmerkung: " + ": " + "<br>" + parseInt(anmerkungenInput.value) + "\n";
+
         }
 
+        zeigeSumme();
 
-       
+        console.log("Veränderung erkannt und bearbeitet");
+    }
+
+    /*Gesamtsumme anzeigen */
+
+    function zeigeSumme(): void {
+
+        let summeP: HTMLElement = document.getElementById("Summe");
+
+        let summe: number = 0;
+
+        for (let i: number = 0; i < artInputs.length; i++) {
+            summe += (parseInt(artInputs[i].value) * 0.2);
+        }
+        for (let i: number = 0; i < sorteInputs.length; i++) {
+            summe += (parseInt(sorteInputs[i].value) * 1);
+        }
+        for (let i: number = 0; i < kugelgrößeInputs.length; i++) {
+            if (kugelgrößeInputs[i].checked)
+                summe += 1;
+        }
+
+        for (let i: number = 0; i < toppingInputs.length; i++) {
+            summe += (parseInt(toppingInputs[i].value) * 0.6);
+        }
+
+        if (versandartInputs[1].checked){
+            summe += 2;
+    }
+
+    summeP.innerText = summe.toString() + "€";
+    console.log(summe);
+
 }
+    
+    }

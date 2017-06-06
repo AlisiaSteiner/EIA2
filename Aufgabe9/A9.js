@@ -39,6 +39,7 @@ var Aufgabe9;
     let kontaktdaten = document.getElementById("Kontaktdaten");
     let versandarten = document.getElementById("Versandart");
     let sendeButton = document.getElementById("BestellButton");
+    let anmerkungenInput = document.getElementById("Anmerkungen");
     function init() {
         console.log("Init");
         createFieldSetBestellung();
@@ -50,8 +51,6 @@ var Aufgabe9;
         toppings.addEventListener("change", change);
         anmerkungen.addEventListener("change", change);
         versandarten.addEventListener("change", change);
-        console.log(artInputs);
-        console.log("teste");
     }
     /* Bestellungs-FieldSet */
     function createFieldSetBestellung() {
@@ -127,6 +126,7 @@ var Aufgabe9;
         anmerkungenFeld.cols = 30;
         anmerkungenFeld.rows = 4;
         anmerkungenFeld.placeholder = "Beschreiben Sie hier Ihre Sonderwünsche....";
+        anmerkungenFeld.id = "Anmerkungen";
         anmerkungen.appendChild(umbruch);
         anmerkungen.appendChild(anmerkungenFeld);
     }
@@ -172,32 +172,58 @@ var Aufgabe9;
         let telefonnummer = document.getElementById("Telefonnummer");
         console.log("Button gedrückt");
     }
-    /* Change Funktion bei Änderung der Werte */
+    /* Change Funktion bei Änderung der Werte     */
     function change() {
-        let summe = 0;
-        let bestellübersicht = document.getElementById("Bestellübersicht");
-        bestellübersicht.innerText = "";
+        let bestellübersichtP = document.getElementById("BestellübersichtP");
+        bestellübersichtP.innerText = "";
         for (let i = 0; i < artInputs.length; i++) {
-            if (kugelgrößeInputs[i].checked) {
-                bestellübersicht.innerText += art[i] + " " + "\n";
+            if (artInputs[i].checked) {
+                bestellübersichtP.innerText += art[i] + " " + "\n";
             }
-            console.log("j");
         }
         for (let i = 0; i < sorteInputs.length; i++) {
             if (parseInt(sorteInputs[i].value) > 0) {
-                bestellübersicht.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
+                bestellübersichtP.innerText += sorte[i] + " " + ": " + (parseInt(sorteInputs[i].value) * 1) + "\n";
             }
         }
         for (let i = 0; i < kugelgrößeInputs.length; i++) {
             if (kugelgrößeInputs[i].checked) {
-                bestellübersicht.innerText += kugelgröße[i] + " " + "\n";
+                bestellübersichtP.innerText += kugelgröße[i] + " " + "\n";
             }
         }
         for (let i = 0; i < toppingInputs.length; i++) {
             if (parseInt(toppingInputs[i].value) > 0) {
-                bestellübersicht.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
+                bestellübersichtP.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
             }
         }
+        if (parseInt(anmerkungenInput.value) > 0) {
+            bestellübersichtP.innerText += "Anmerkung: " + ": " + "<br>" + parseInt(anmerkungenInput.value) + "\n";
+        }
+        zeigeSumme();
+        console.log("Veränderung erkannt und bearbeitet");
+    }
+    /*Gesamtsumme anzeigen */
+    function zeigeSumme() {
+        let summeP = document.getElementById("Summe");
+        let summe = 0;
+        for (let i = 0; i < artInputs.length; i++) {
+            summe += (parseInt(artInputs[i].value) * 0.2);
+        }
+        for (let i = 0; i < sorteInputs.length; i++) {
+            summe += (parseInt(sorteInputs[i].value) * 1);
+        }
+        for (let i = 0; i < kugelgrößeInputs.length; i++) {
+            if (kugelgrößeInputs[i].checked)
+                summe += 1;
+        }
+        for (let i = 0; i < toppingInputs.length; i++) {
+            summe += (parseInt(toppingInputs[i].value) * 0.6);
+        }
+        if (versandartInputs[1].checked) {
+            summe += 2;
+        }
+        summeP.innerText = summe.toString() + "€";
+        console.log(summe);
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=A9.js.map
