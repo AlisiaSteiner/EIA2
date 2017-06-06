@@ -44,7 +44,7 @@ var Aufgabe9;
         console.log("Init");
         createFieldSetBestellung();
         createFieldSetÜbersicht();
-        sendeButton.addEventListener("click", bestellungSenden);
+        sendeButton.addEventListener("click", bestellungPrüfen);
         arten.addEventListener("change", change);
         sorten.addEventListener("change", change);
         kugelgrößen.addEventListener("change", change);
@@ -161,17 +161,6 @@ var Aufgabe9;
             versandartInputs.push(versandartInput);
         }
     }
-    /* Prüfung der Input-Werte: Überprüfung von Postleitzahl, Telefonnummer, Name + sind Art, Versandart, Kugelgröße ausgewählt? */
-    function bestellungSenden() {
-        let name = document.getElementById("Name");
-        let vorname = document.getElementById("Vorname");
-        let straße = document.getElementById("Straße");
-        let hausnummer = document.getElementById("Hausnummer");
-        let postleitzahl = document.getElementById("Postleitzahl");
-        let ort = document.getElementById("Ort");
-        let telefonnummer = document.getElementById("Telefonnummer");
-        console.log("Button gedrückt");
-    }
     /* Change Funktion bei Änderung der Werte     */
     function change() {
         let bestellübersichtP = document.getElementById("BestellübersichtP");
@@ -193,7 +182,7 @@ var Aufgabe9;
         }
         for (let i = 0; i < toppingInputs.length; i++) {
             if (parseInt(toppingInputs[i].value) > 0) {
-                bestellübersichtP.innerText += topping[i] + " " + ": " + (parseInt(toppingInputs[i].value) * 1) + "\n";
+                bestellübersichtP.innerText += topping[i] + " " + "\n";
             }
         }
         if (parseInt(anmerkungenInput.value) > 0) {
@@ -212,18 +201,38 @@ var Aufgabe9;
         for (let i = 0; i < sorteInputs.length; i++) {
             summe += (parseInt(sorteInputs[i].value) * 1);
         }
-        for (let i = 0; i < kugelgrößeInputs.length; i++) {
-            if (kugelgrößeInputs[i].checked)
-                summe += 1;
-        }
         for (let i = 0; i < toppingInputs.length; i++) {
             summe += (parseInt(toppingInputs[i].value) * 0.6);
         }
+        if (kugelgrößeInputs[1].checked)
+            summe += 1;
         if (versandartInputs[1].checked) {
             summe += 2;
         }
         summeP.innerText = summe.toString() + "€";
         console.log(summe);
+    }
+    /* Prüfung der Input-Werte: Überprüfung von Postleitzahl, Telefonnummer, Name + sind Art, Versandart, Kugelgröße ausgewählt? */
+    function bestellungPrüfen() {
+        let name = document.getElementById("Name");
+        let vorname = document.getElementById("Vorname");
+        let straße = document.getElementById("Straße");
+        let hausnummer = document.getElementById("Hausnummer");
+        let postleitzahl = document.getElementById("Postleitzahl");
+        let ort = document.getElementById("Ort");
+        let telefonnummer = document.getElementById("Telefonnummer");
+        if (hausnummer.value.length > 3) {
+            alert("Bitte überprüfen Sie die Eingabe Ihrer Hausnummer.");
+        }
+        if (postleitzahl.value.length != 5) {
+            alert("Bitte überprüfen Sie die Eingabe Ihrer Postleitzahl.");
+        }
+        if (isNaN(Number(telefonnummer.value)) == true) {
+            alert("Bitte überprüfen Sie die Eingabe Ihrer Telefonnummer.");
+        }
+        else {
+            alert("Danke für Ihre Bestellung!");
+        }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=A9.js.map
