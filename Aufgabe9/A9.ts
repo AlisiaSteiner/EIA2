@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-
+ 
 /* Sorry, aber css spricht manche Ids nicht richtig an. Deshalb sieht die Seite Style-technisch etwas verunglückt aus :/ */
 
 
