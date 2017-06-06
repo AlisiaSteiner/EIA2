@@ -300,14 +300,14 @@ namespace Aufgabe9 {
         let summe: number = 0;
 
         for (let i: number = 0; i < artInputs.length; i++) {
-            summe += (parseInt(artInputs[i].value) * 0.2);
+            summe += (parseInt(artInputs[i].value) * 0.5);
         }
         for (let i: number = 0; i < sorteInputs.length; i++) {
             summe += (parseInt(sorteInputs[i].value) * 1);
         }
 
         for (let i: number = 0; i < toppingInputs.length; i++) {
-            summe += (parseInt(toppingInputs[i].value) * 0.6);
+            summe += (parseInt(toppingInputs[i].value) * 0.5);
         }
 
         if (kugelgrößeInputs[1].checked)
@@ -348,7 +348,7 @@ namespace Aufgabe9 {
             alert("Bitte überprüfen Sie die Eingabe Ihrer Telefonnummer.");
             }
         else {
-              alert("Danke für Ihre Bestellung!");}
+              alert("Danke für Ihre Bestellung!"); }
         
             
 

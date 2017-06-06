@@ -196,13 +196,13 @@ var Aufgabe9;
         let summeP = document.getElementById("Summe");
         let summe = 0;
         for (let i = 0; i < artInputs.length; i++) {
-            summe += (parseInt(artInputs[i].value) * 0.2);
+            summe += (parseInt(artInputs[i].value) * 0.5);
         }
         for (let i = 0; i < sorteInputs.length; i++) {
             summe += (parseInt(sorteInputs[i].value) * 1);
         }
         for (let i = 0; i < toppingInputs.length; i++) {
-            summe += (parseInt(toppingInputs[i].value) * 0.6);
+            summe += (parseInt(toppingInputs[i].value) * 0.5);
         }
         if (kugelgrößeInputs[1].checked)
             summe += 1;
