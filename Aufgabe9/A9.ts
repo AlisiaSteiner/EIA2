@@ -9,6 +9,7 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
+/* Sorry, aber css spricht manche Ids nicht richtig an. Deshalb sieht die Seite Style-technisch etwas verunglückt aus :/ */
 
 
 namespace Aufgabe9 {
@@ -32,7 +33,7 @@ namespace Aufgabe9 {
 
     art = ["Waffel", "Becher"];
     sorte = ["Schokolade", "Vanille", "Stracciatella", "Malaga", "Pistazie", "Erdbeere", "Himbeere", "Zitrone", "Melone", "Grüner Apfel"];
-    kugelgröße = ["Normal", "XL"];
+    kugelgröße = ["Normal - 1€ je Kugel", "XL - 2€ je Kugel"];
     topping = ["Sahne", "Schoko-Soße", "Caramell-Soße", "Schoko-Streusel", "Bunte Streusel", "Smarties", "Oreos", "Banane", "Erdbeeren", "Melone", "Himbeeren", "Heidelbeeren"];
     kontaktdatenArray = ["Name", "Vorname", "Straße", "Hausnummer", "Postleitzahl", "Ort", "Telefonnummer"];
     versandart = ["Standard", "Express"];
