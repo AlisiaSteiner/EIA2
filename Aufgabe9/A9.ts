@@ -144,7 +144,7 @@ namespace Aufgabe9 {
 
             let eisgrößenInput: HTMLInputElement = document.createElement("input");
             eisgrößenInput.type = "radio";
-            eisgrößenInput.id = sorte[i];
+            eisgrößenInput.id = kugelgröße[i];
             eisgrößenInput.value = "0";
             eisgrößenInput.name = "Kugelgröße";
 
