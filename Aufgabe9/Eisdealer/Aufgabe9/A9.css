@@ -1,0 +1,66 @@
+/*
+Aufgabe:    Aufgabe 9
+Name:       Alisia Steiner
+Matrikel:   254788
+Datum:      31.05.2017
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+
+
+body { font-family: 'Bubbler One', sans-serif;
+			color: black;
+			text-align: center;
+		}
+
+#Bestellung {
+			width: 50%;
+			margin-right: 20px;
+			margin-left: 5px;
+			border: 1px solid grey;
+			
+}
+
+#Bestellung fieldset {
+				border: 1px solid purple;
+}
+
+
+#Kontaktdaten{
+			width: 30%;
+			margin-right: 5%;
+			margin-left: 10%;
+			float:left;
+			border: 1px solid purple;
+}
+
+#Versandart { 
+			margin-right: 10%;
+			margin-left: 10%;
+			width: 30%;
+			float:left;
+			border: 1px solid purple;
+			
+}
+
+#Bestellübersicht{
+	
+			width: 30%;
+			margin-right: 10%;
+			margin-left: 10%;
+			float:left;
+			border: 1px solid purple;
+}
+
+h2 { font-style: bold;
+	  color: puple;
+	  text-align: center;}
+
+fieldset  {
+			
+}
+
+
+
