@@ -8,7 +8,6 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-/* NormalBee is not a constructor als Error-Meldung in der Console. Fehler nicht gefunden :( Vorher wurden zumindest die Blumen gezeichnet - das funktioniert nun auch nicht mehr */
 var Aufgabe8;
 (function (Aufgabe8) {
     class NormalBees extends Aufgabe8.Bees {

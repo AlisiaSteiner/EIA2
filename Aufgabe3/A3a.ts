@@ -80,12 +80,14 @@ document.addEventListener("DOMContentLoaded", function(): void {
     
       /* 3a : Toggle +  Farbänderung */
 
+    let divList: NodeList = document.getElementsByTagName("div");
     for (let z: number = 0; z < 8; z++) {
-        div[i].addEventListener("click", select() {
-            div.className = "selected"
+        let selecetedDivs: HTMLDivElement = divList[z];
+        divList[z].addEventListener("click", select(): void {
+            this.classList.toggle("selected");
         });
-    };
-
+    }
+ 
 
 
 

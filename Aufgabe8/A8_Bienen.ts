@@ -1,4 +1,4 @@
-/*
+ /*
 Aufgabe:    Aufgabe 8
 Name:       Alisia Steiner
 Matrikel:   254788

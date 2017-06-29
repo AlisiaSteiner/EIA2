@@ -10,7 +10,7 @@ nicht kopiert und auch nicht diktiert.
 */
 
 
-/* NormalBee is not a constructor als Error-Meldung in der Console. Fehler nicht gefunden :( Vorher wurden zumindest die Blumen gezeichnet - das funktioniert nun auch nicht mehr */
+
 
 namespace Aufgabe8 {
 
