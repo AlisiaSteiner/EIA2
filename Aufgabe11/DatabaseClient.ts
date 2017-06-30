@@ -1,12 +1,18 @@
 namespace DatabaseClient {
     window.addEventListener("load", init);
-
+    var mongodb: any = require("mongodb");
+    var uri: string = "mongodb://[AlisiaSt:eia2database@]host:port/databasea11";
+    mongodb.MongoClient.connect(uri);
+    
     function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let searchButton: HTMLButtonElement =  <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+//        searchButton.addEventListener("click", search);
+        
     }
 
     function insert(_event: Event): void {

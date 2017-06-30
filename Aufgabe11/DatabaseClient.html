@@ -10,6 +10,7 @@
 
 	<form action="https://eia2database.herokuapp.com/" method="get">
 	
+	
 	<fieldset id="input">
 		<legend> Type student data here </legend>
 		<input type="text" name="name" placeholder="name" id="name" />
@@ -18,6 +19,14 @@
 		
 		<button type="button" id="insert">Insert to database</button>
 	</fieldset>
+	
+	<fieldset id="MatrikelSuche">
+	<legend> Search for an immatriculation number</legend>
+	<input type="text" name="matrikelsuche" placeholder="Matrikelnummer" id="matrikelsuchfeld"></input>
+	
+	<button type="button" id="search">Search</button>
+	</fieldset>
+	
 	<fieldset id="output">
 		<legend> All student data </legend>
 		<button type="button" id="refresh">Refresh</button>

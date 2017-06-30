@@ -1,12 +1,17 @@
 var DatabaseClient;
 (function (DatabaseClient) {
     window.addEventListener("load", init);
+    var mongodb = require("mongodb");
+    var uri = "mongodb://[AlisiaSt:eia2database@]host:port/databasea11";
+    mongodb.MongoClient.connect(uri);
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        //        searchButton.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
