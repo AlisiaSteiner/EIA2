@@ -1,9 +1,6 @@
 var DatabaseClient;
 (function (DatabaseClient) {
     window.addEventListener("load", init);
-    var mongodb = require("mongodb");
-    var uri = "mongodb://[AlisiaSt:eia2database@]host:port/databasea11";
-    mongodb.MongoClient.connect(uri);
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
@@ -11,7 +8,7 @@ var DatabaseClient;
         let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        //        searchButton.addEventListener("click", search);
+        searchButton.addEventListener("click", searchMatrikel);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -25,6 +22,11 @@ var DatabaseClient;
     function refresh(_event) {
         let query = "command=find";
         sendRequest(query, handleFindResponse);
+    }
+    function searchMatrikel(_event) {
+        let matrikelsuchfeld = document.getElementById("matrikelsuchfeld");
+        let gesuchtematrikel = matrikelsuchfeld.value;
+        let query = "command=findOne(query:,projection:)";
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();

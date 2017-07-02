@@ -1,8 +1,6 @@
 namespace DatabaseClient {
     window.addEventListener("load", init);
-    var mongodb: any = require("mongodb");
-    var uri: string = "mongodb://[AlisiaSt:eia2database@]host:port/databasea11";
-    mongodb.MongoClient.connect(uri);
+    
     
     function init(_event: Event): void {
         console.log("Init");
@@ -11,7 +9,8 @@ namespace DatabaseClient {
         let searchButton: HTMLButtonElement =  <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-//        searchButton.addEventListener("click", search);
+        searchButton.addEventListener("click", searchMatrikel);
+        
         
     }
 
@@ -29,6 +28,13 @@ namespace DatabaseClient {
         let query: string = "command=find";
         sendRequest(query, handleFindResponse);
     }
+    
+    function searchMatrikel(_event: Event): void {
+        let matrikelsuchfeld: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelsuchfeld");
+        let gesuchtematrikel: string = matrikelsuchfeld.value;
+        let query: string = "command=findOne(query:,projection:)";
+
+        }
 
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
