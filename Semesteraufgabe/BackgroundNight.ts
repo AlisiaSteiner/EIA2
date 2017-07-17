@@ -26,6 +26,7 @@ namespace SpookySpook {
             this.drawMist(40, 340);
             this.drawMist(290, 30);
             this.drawGrave1();
+            this.drawGrave2();
         }
 
 
@@ -138,6 +139,52 @@ namespace SpookySpook {
             crc2.stroke();
             crc2.fill();
             
+            /* Text on the Gravestone */
+            
+            crc2.beginPath();
+            crc2.fillStyle = "black";
+            crc2.moveTo(55, 365);
+            crc2.lineTo(133, 357);
+            crc2.lineTo(135 , 367);
+            crc2.lineTo(57, 375);
+            crc2.globalAlpha = 0.2;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+            
+            crc2.beginPath();
+            crc2.fillStyle = "black";
+            crc2.moveTo(59, 385);
+            crc2.lineTo(137, 377);
+            crc2.lineTo(139 , 387);
+            crc2.lineTo(61, 395);
+            crc2.globalAlpha = 0.2;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+            
+
+            crc2.beginPath();
+            crc2.fillStyle = "black";
+            crc2.moveTo(62, 405);
+            crc2.lineTo(141, 397);
+            crc2.lineTo(143, 407);
+            crc2.lineTo(64, 415);
+            crc2.globalAlpha = 0.2;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+            
+            crc2.beginPath();
+            crc2.fillStyle = "black";
+            crc2.moveTo(65, 425);
+            crc2.lineTo(145, 417);
+            crc2.lineTo(147, 427);
+            crc2.lineTo(67, 435);
+            crc2.globalAlpha = 0.2;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
 
             /* Earth */
             
@@ -153,5 +200,59 @@ namespace SpookySpook {
        
         }
 
+        
+        
+        drawGrave2(): void {
+       
+      
+            /*Gravestone*/      
+            
+            crc2.fillStyle = "grey";
+            crc2.strokeStyle = "black";
+            crc2.beginPath();
+            crc2.moveTo(731, 488);
+            crc2.lineTo(751, 346);
+            crc2.lineTo(791, 354); 
+            crc2.lineTo(795, 326);
+            crc2.lineTo(756, 316);
+            crc2.lineTo(761, 270);            
+            crc2.lineTo(726, 261);
+            crc2.lineTo(721, 310);
+            crc2.lineTo(681, 300);
+            crc2.lineTo(679, 334);
+            crc2.lineTo(716, 341);
+            crc2.lineTo(702, 483);
+            crc2.globalAlpha = 1;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+            
+            /* Text on the Gravestone */
+            
+            crc2.beginPath();
+            crc2.fillStyle = "black";
+            crc2.moveTo(688, 323);
+            crc2.lineTo(690, 313);
+            crc2.lineTo(780, 332);
+            crc2.lineTo(777, 342);
+            crc2.globalAlpha = 0.2;
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fill();
+            
+
+            /* Earth */
+            
+            crc2.fillStyle = "#804000";
+            crc2.strokeStyle = "#4d2600";
+            crc2.beginPath();
+            crc2.moveTo(765, 495);
+            crc2.bezierCurveTo(755, 450, 670, 440, 640, 485);
+            crc2.globalAlpha = 0.95;
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+       
+        }
     }
 }
