@@ -69,7 +69,35 @@ var SpookySpook;
             this.x += Math.random() * 50 - 23;
             this.y += Math.random() * 30 - 15;
         }
-        disappear() {
+        disappear(_x, _y) {
+            console.log("Geist vertrieben");
+            SpookySpook.crc2.fillStyle = "";
+            SpookySpook.crc2.strokeStyle = "#f9f9f9";
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.moveTo(_x, _y);
+            SpookySpook.crc2.arc(_x, _y - 5, 20, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.arc(_x + 5, _y + 20, 20, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.arc(_x + 30, _y + 20, 25, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.arc(_x + 30, _y - 20, 25, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.arc(_x + 54, _y - 10, 20, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
+            SpookySpook.crc2.beginPath();
+            SpookySpook.crc2.arc(_x + 58, _y + 16, 20, 0, 2 * Math.PI);
+            SpookySpook.crc2.closePath();
+            SpookySpook.crc2.fill();
         }
     }
     SpookySpook.NormalGhost = NormalGhost;

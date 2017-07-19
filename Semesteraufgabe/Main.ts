@@ -40,6 +40,11 @@ namespace SpookySpook {
         startButton.addEventListener("click", SpawnGhostFirstTime);
         startButton.addEventListener("touchstart", SpawnGhostFirstTime);
 
+        let banishButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("banish");
+        banishButton.addEventListener("click", Disappear);
+        banishButton.addEventListener("touchstart", Disappear);
+
+
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
@@ -57,7 +62,7 @@ namespace SpookySpook {
         appearedGhosts.push(normalghost);
 
         startButton.disabled = true;
-        window.setTimeout(animate, 200);
+        window.setTimeout(Animate, 200);
     }
 
 
@@ -77,10 +82,10 @@ namespace SpookySpook {
         }
     }
 
-    function animate(): void {
+    function Animate(): void {
 
         crc2.putImageData(imgData, 0, 0);
-        
+
 
         for (let i: number = 0; i < appearedGhosts.length; i++) {
 
@@ -102,8 +107,23 @@ namespace SpookySpook {
 
         }
 
-        window.setTimeout(animate, 200);
+        window.setTimeout(Animate, 200);
     }
+
+    function Disappear(): void {
+
+        crc2.putImageData(imgData, 0, 0);
+        /*Deleting Ghost out of the array --> not drawn anymore, "banished" */
+        disappearedGhosts.push(appearedGhosts[0]);        
+        appearedGhosts.splice(0, 1);
+        Ghost.this.disappear();
+
+
+    }
+
+
+
+
 
 
 }

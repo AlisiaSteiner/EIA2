@@ -25,6 +25,9 @@ var SpookySpook;
         let startButton = document.getElementById("start");
         startButton.addEventListener("click", SpawnGhostFirstTime);
         startButton.addEventListener("touchstart", SpawnGhostFirstTime);
+        let banishButton = document.getElementById("banish");
+        banishButton.addEventListener("click", Disappear);
+        banishButton.addEventListener("touchstart", Disappear);
         imgData = SpookySpook.crc2.getImageData(0, 0, canvas.width, canvas.height);
     }
     function SpawnGhostFirstTime() {
@@ -32,7 +35,7 @@ var SpookySpook;
         let normalghost = new SpookySpook.NormalGhost;
         SpookySpook.appearedGhosts.push(normalghost);
         startButton.disabled = true;
-        window.setTimeout(animate, 200);
+        window.setTimeout(Animate, 200);
     }
     function SpawnGhost() {
         let i = (Math.random() * 10);
@@ -46,7 +49,7 @@ var SpookySpook;
             SpookySpook.appearedGhosts.push(normalghost);
         }
     }
-    function animate() {
+    function Animate() {
         SpookySpook.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < SpookySpook.appearedGhosts.length; i++) {
             let g = SpookySpook.appearedGhosts[i];
@@ -64,7 +67,17 @@ var SpookySpook;
             }
             g.update();
         }
-        window.setTimeout(animate, 200);
+        window.setTimeout(Animate, 200);
+    }
+    function Disappear() {
+        SpookySpook.crc2.putImageData(imgData, 0, 0);
+        /*Deleting Ghost out of the array --> not drawn anymore, "banished" */
+        SpookySpook.disappearedGhosts.push(SpookySpook.appearedGhosts[0]);
+        SpookySpook.appearedGhosts.splice(0, 1);
+        disappearCloud();
     }
 })(SpookySpook || (SpookySpook = {}));
+/* function that creates the Cloud("Explosion") when a Ghost is banished. */
+function disappearCloud() {
+}
 //# sourceMappingURL=Main.js.map

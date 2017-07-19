@@ -106,9 +106,37 @@ namespace SpookySpook {
         this.y += Math.random() * 30 - 15;
         }
 
-        disappear(): void {
+        disappear(_x: number, _y: number): void {
 
-
+            console.log("Geist vertrieben");
+            
+            crc2.fillStyle = "";
+            crc2.strokeStyle = "#f9f9f9";
+            crc2.beginPath();
+            crc2.moveTo(_x, _y);
+            crc2.arc(_x, _y - 5, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(_x + 5, _y + 20, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(_x + 30, _y + 20, 25, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(_x + 30, _y - 20, 25, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(_x + 54, _y - 10, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(_x + 58, _y + 16, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
         }
 
 

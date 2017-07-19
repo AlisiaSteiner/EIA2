@@ -53,7 +53,7 @@ namespace SpookySpook {
             
             }
         
-        disappear(): void {
+        disappear(_x: number, _y: number): void {
             
             
             }

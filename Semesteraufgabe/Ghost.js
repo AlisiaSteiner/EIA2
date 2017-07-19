@@ -24,7 +24,7 @@ var SpookySpook;
         }
         move() {
         }
-        disappear() {
+        disappear(_x, _y) {
         }
     }
     SpookySpook.Ghost = Ghost;
