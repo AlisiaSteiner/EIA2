@@ -27,7 +27,7 @@ var SpookySpook;
         }
         drawSky() {
             SpookySpook.crc2.beginPath();
-            let gradient = SpookySpook.crc2.createLinearGradient(0, 0, 0, 500);
+            let gradient = SpookySpook.crc2.createLinearGradient(0, 200, 0, 600);
             gradient.addColorStop(0, "#000033");
             gradient.addColorStop(1, "#51617b");
             SpookySpook.crc2.fillStyle = gradient;
@@ -53,11 +53,14 @@ var SpookySpook;
             gradient.addColorStop(0, "#f5f4bd");
             gradient.addColorStop(1, "#eeec91");
             SpookySpook.crc2.fillStyle = gradient;
+            SpookySpook.crc2.shadowBlur = 50;
+            SpookySpook.crc2.shadowColor = "#f5f4bd";
             SpookySpook.crc2.fill();
         }
         drawCloud(x, y) {
             SpookySpook.crc2.fillStyle = "#9fa1ad";
             SpookySpook.crc2.strokeStyle = "#9fa1ad";
+            SpookySpook.crc2.shadowBlur = 0;
             SpookySpook.crc2.beginPath();
             SpookySpook.crc2.moveTo(x, y);
             SpookySpook.crc2.arc(x, y - 5, 20, 0, 2 * Math.PI);
@@ -100,10 +103,14 @@ var SpookySpook;
             SpookySpook.crc2.globalAlpha = 0.4;
             SpookySpook.crc2.fill();
         }
+        /* "Normal" Gravestone */
         drawGrave1() {
             /*Gravestone*/
-            SpookySpook.crc2.fillStyle = "grey";
-            SpookySpook.crc2.strokeStyle = "black";
+            let gradient = SpookySpook.crc2.createLinearGradient(0, 200, 0, 520);
+            gradient.addColorStop(0, "#a6a6a6");
+            gradient.addColorStop(1, "#262626");
+            SpookySpook.crc2.fillStyle = gradient;
+            SpookySpook.crc2.strokeStyle = "#262626";
             SpookySpook.crc2.beginPath();
             SpookySpook.crc2.moveTo(65, 492);
             SpookySpook.crc2.lineTo(45, 352);
@@ -165,10 +172,14 @@ var SpookySpook;
             SpookySpook.crc2.fill();
             SpookySpook.crc2.stroke();
         }
+        /* Cruzifix - Gravestone */
         drawGrave2() {
             /*Gravestone*/
-            SpookySpook.crc2.fillStyle = "grey";
-            SpookySpook.crc2.strokeStyle = "black";
+            let gradient = SpookySpook.crc2.createLinearGradient(0, 50, 0, 520);
+            gradient.addColorStop(0, "#a6a6a6");
+            gradient.addColorStop(1, "#262626");
+            SpookySpook.crc2.fillStyle = gradient;
+            SpookySpook.crc2.strokeStyle = "#262626";
             SpookySpook.crc2.beginPath();
             SpookySpook.crc2.moveTo(731, 488);
             SpookySpook.crc2.lineTo(751, 346);

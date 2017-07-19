@@ -32,7 +32,7 @@ namespace SpookySpook {
 
         drawSky(): void {
             crc2.beginPath();
-            let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 500);
+            let gradient: CanvasGradient = crc2.createLinearGradient(0, 200, 0, 600);
             gradient.addColorStop(0, "#000033");
             gradient.addColorStop(1, "#51617b");
             crc2.fillStyle = gradient;
@@ -64,6 +64,8 @@ namespace SpookySpook {
             gradient.addColorStop(0, "#f5f4bd");
             gradient.addColorStop(1, "#eeec91");
             crc2.fillStyle = gradient;
+            crc2.shadowBlur = 50;
+            crc2.shadowColor = "#f5f4bd";
 
             crc2.fill();
 
@@ -74,6 +76,7 @@ namespace SpookySpook {
 
             crc2.fillStyle = "#9fa1ad";
             crc2.strokeStyle = "#9fa1ad";
+            crc2.shadowBlur = 0;
             crc2.beginPath();
             crc2.moveTo(x, y);
             crc2.arc(x, y - 5, 20, 0, 2 * Math.PI);
@@ -122,13 +125,19 @@ namespace SpookySpook {
             crc2.fill();
         }
 
+        
+        /* "Normal" Gravestone */
+        
         drawGrave1(): void {
        
       
             /*Gravestone*/      
             
-            crc2.fillStyle = "grey";
-            crc2.strokeStyle = "black";
+            let gradient: CanvasGradient = crc2.createLinearGradient(0, 200, 0, 520);
+            gradient.addColorStop(0, "#a6a6a6");
+            gradient.addColorStop(1, "#262626");
+            crc2.fillStyle = gradient;
+            crc2.strokeStyle = "#262626";
             crc2.beginPath();
             crc2.moveTo(65, 492);
             crc2.lineTo(45, 352);
@@ -200,15 +209,18 @@ namespace SpookySpook {
        
         }
 
-        
+        /* Cruzifix - Gravestone */
         
         drawGrave2(): void {
        
       
             /*Gravestone*/      
             
-            crc2.fillStyle = "grey";
-            crc2.strokeStyle = "black";
+            let gradient: CanvasGradient = crc2.createLinearGradient(0, 50, 0, 520);
+            gradient.addColorStop(0, "#a6a6a6");
+            gradient.addColorStop(1, "#262626");
+            crc2.fillStyle = gradient;
+            crc2.strokeStyle = "#262626";
             crc2.beginPath();
             crc2.moveTo(731, 488);
             crc2.lineTo(751, 346);
