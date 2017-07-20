@@ -99,19 +99,19 @@ namespace SpookySpook {
 
 
         }
-        update(): void {
+         update(): void {
 
+            this.move();
+            this.drawGhost();
         }
 
         move(): void {
 
+        this.x += Math.random() * 50 - 23;
+        this.y += Math.random() * 30 - 15;
         }
 
-        disappear(): void {
-
-
-     }
-        
+            
         
         }
     }

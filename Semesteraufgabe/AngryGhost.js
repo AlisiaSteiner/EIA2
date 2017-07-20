@@ -62,10 +62,12 @@ var SpookySpook;
             SpookySpook.crc2.stroke();
         }
         update() {
+            this.move();
+            this.drawGhost();
         }
         move() {
-        }
-        disappear() {
+            this.x += Math.random() * 50 - 23;
+            this.y += Math.random() * 30 - 15;
         }
     }
     SpookySpook.AngryGhost = AngryGhost;
