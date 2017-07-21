@@ -47,7 +47,7 @@ canvas {
 
 }
 
-.start {
+#start {
 	border: 2px solid black;
 		height: 20%;
 		width: 90%;
@@ -59,7 +59,7 @@ canvas {
 		margin-bottom: 10%;
 
 }
-.expel {
+#expel {
 	
 	
 	display: block;
@@ -79,7 +79,7 @@ canvas {
 	width: 12vh;
 }
 
-.banish {
+#banish {
 	
 	display: block;
 	clear: both;
