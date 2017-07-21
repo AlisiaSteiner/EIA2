@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 
 namespace SpookySpook {
 
-    export class WinningScreen {
+    export class StartScreen {
 
         constructor() {
             
@@ -21,7 +21,7 @@ namespace SpookySpook {
         
         drawScreenAndText(): void {
             
-            crc2.fillStyle = "#000033";
+            crc2.fillStyle = "black";
             crc2.beginPath();
             crc2.rect(20, 20, 760, 460);
             crc2.globalAlpha = 0.8;
@@ -32,10 +32,10 @@ namespace SpookySpook {
             crc2.fillStyle = "white";
             crc2.font = "30px Arial";
             crc2.textAlign = "center";
-            crc2.fillText("Hey! You have successfully defended the graveyard", canvas.width / 2, canvas.height / 2 - 55);
-            crc2.fillText("and saved the souls of the death.", canvas.width / 2, canvas.height / 2 - 20);
-            crc2.fillText("The sun is rising and it's time for you, to take a break.", canvas.width / 2, canvas.height / 2 + 20);
-            crc2.fillText("See you, little hero!", canvas.width / 2, canvas.height / 2 + 55);
+            crc2.fillText("Oh no!! The graveyard is haunted by ghosts!", canvas.width / 2, canvas.height / 2 - 55);
+            crc2.fillText("Expel the white ghosts and banish the angry ones", canvas.width / 2, canvas.height / 2 - 20);
+            crc2.fillText("to defend the yard through the night!", canvas.width / 2, canvas.height / 2 + 20);
+            crc2.fillText("Click START to fight!", canvas.width / 2, canvas.height / 2 + 55);
             
             
             }

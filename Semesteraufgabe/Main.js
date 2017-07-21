@@ -11,14 +11,14 @@ nicht kopiert und auch nicht diktiert.
 var SpookySpook;
 (function (SpookySpook) {
     window.addEventListener("load", init);
-    let canvas;
     let imgData;
+    let animationStop = 0;
     SpookySpook.appearedGhosts = [];
     SpookySpook.disappearedGhosts = [];
     SpookySpook.explosionArray = [];
     function init(_event) {
-        canvas = document.getElementsByTagName("canvas")[0];
-        SpookySpook.crc2 = canvas.getContext("2d");
+        SpookySpook.canvas = document.getElementsByTagName("canvas")[0];
+        SpookySpook.crc2 = SpookySpook.canvas.getContext("2d");
         let background = new SpookySpook.BackgroundNight;
         let startButton = document.getElementById("start");
         startButton.addEventListener("click", SpawnGhostFirstTime);
@@ -29,10 +29,12 @@ var SpookySpook;
         let expelButton = document.getElementById("expel");
         expelButton.addEventListener("click", DisappearAndExplode);
         expelButton.addEventListener("touchstart", DisappearAndExplode);
-        imgData = SpookySpook.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        imgData = SpookySpook.crc2.getImageData(0, 0, SpookySpook.canvas.width, SpookySpook.canvas.height);
+        let startScreen = new SpookySpook.StartScreen;
     }
     /* Spawning a Ghost for the first time --> Starting Game by click on startButton, this one gets disabled after being clicked once. */
     function SpawnGhostFirstTime() {
+        SpookySpook.crc2.putImageData(imgData, 0, 0);
         let startButton = document.getElementById("start");
         let normalghost = new SpookySpook.NormalGhost;
         SpookySpook.appearedGhosts.push(normalghost);
@@ -54,7 +56,9 @@ var SpookySpook;
     }
     /* Animation, movement of the ghosts */
     function Animate() {
-        SpookySpook.crc2.putImageData(imgData, 0, 0);
+        if (SpookySpook.appearedGhosts.length == 1) {
+            SpookySpook.crc2.putImageData(imgData, 0, 0);
+        }
         for (let i = 0; i < SpookySpook.appearedGhosts.length; i++) {
             let g = SpookySpook.appearedGhosts[i];
             if (g.x > 801) {
@@ -75,12 +79,13 @@ var SpookySpook;
     }
     /* First part of disappearing-function, setting Timeout for next part */
     function DisappearAndExplode() {
-        SpookySpook.crc2.putImageData(imgData, 0, 0);
         /*Saving Ghost-Coordinates in Array */
         SpookySpook.disappearedGhosts.push(SpookySpook.appearedGhosts[0]);
         /*Deleting Ghost out of the array --> not drawn anymore, "banished" */
         SpookySpook.appearedGhosts.splice(0, 1);
+        //        crc2.clearRect(0, 0, canvas.width, canvas.height);
         window.setTimeout(drawExplosion, 300);
+        SpookySpook.crc2.putImageData(imgData, 0, 0);
     }
     let n = 0;
     /* Creating the explosions when ghost disappears */
@@ -95,7 +100,7 @@ var SpookySpook;
             window.setTimeout(StopExplotionAndStartRespawn, 800);
         }
         else if (SpookySpook.disappearedGhosts.length > 9) {
-            window.setTimeout(StartEndOfGame, 800);
+            StartEndOfGame();
         }
         else {
             window.setTimeout(drawExplosion, 300);
@@ -103,6 +108,7 @@ var SpookySpook;
     }
     /* Stop the explotion and set Timeout for the spawning another Ghost */
     function StopExplotionAndStartRespawn() {
+        SpookySpook.crc2.putImageData(imgData, 0, 0);
         SpookySpook.explosionArray.splice(0, 2);
         console.log("Geist vertrieben");
         window.setTimeout(SpawnGhost, 200);
@@ -111,6 +117,10 @@ var SpookySpook;
     function StartEndOfGame() {
         let winningscreen = new SpookySpook.WinningScreen;
         console.log("Spiel gewonnen");
+        window.setTimeout(AfterGameBackground, 10000);
+    }
+    function AfterGameBackground() {
+        let backgroundDay = new SpookySpook.BackgroundDay;
     }
 })(SpookySpook || (SpookySpook = {}));
 //# sourceMappingURL=Main.js.map

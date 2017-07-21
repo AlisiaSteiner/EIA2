@@ -83,6 +83,7 @@ var SpookySpook;
             SpookySpook.crc2.arc(x + 58, y + 16, 20, 0, 2 * Math.PI);
             SpookySpook.crc2.closePath();
             SpookySpook.crc2.fill();
+            SpookySpook.crc2.globalAlpha = 1;
         }
         /* "Normal" Gravestone */
         drawGrave1() {

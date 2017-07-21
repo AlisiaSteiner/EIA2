@@ -12,9 +12,10 @@ nicht kopiert und auch nicht diktiert.
 namespace SpookySpook {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let canvas: HTMLCanvasElement;
+    export let canvas: HTMLCanvasElement;
 
     let imgData: ImageData;
+    let animationStop: number = 0;
 
     export let appearedGhosts: Ghost[] = [];
     export let disappearedGhosts: Ghost[] = [];
@@ -47,6 +48,7 @@ namespace SpookySpook {
         expelButton.addEventListener("touchstart", DisappearAndExplode);
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        let startScreen: StartScreen = new StartScreen;
 
 
 
@@ -55,6 +57,7 @@ namespace SpookySpook {
     /* Spawning a Ghost for the first time --> Starting Game by click on startButton, this one gets disabled after being clicked once. */
     function SpawnGhostFirstTime(): void {
 
+        crc2.putImageData(imgData, 0, 0);
         let startButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         let normalghost: NormalGhost = new NormalGhost;
         appearedGhosts.push(normalghost);
@@ -84,7 +87,11 @@ namespace SpookySpook {
     /* Animation, movement of the ghosts */
     function Animate(): void {
 
-        crc2.putImageData(imgData, 0, 0);
+        if (appearedGhosts.length == 1) {
+
+            crc2.putImageData(imgData, 0, 0);
+
+        }
 
 
         for (let i: number = 0; i < appearedGhosts.length; i++) {
@@ -107,20 +114,26 @@ namespace SpookySpook {
 
         }
 
+
+
         window.setTimeout(Animate, 200);
+
+
     }
+
 
     /* First part of disappearing-function, setting Timeout for next part */
     function DisappearAndExplode(): void {
-
-        crc2.putImageData(imgData, 0, 0);
 
         /*Saving Ghost-Coordinates in Array */
         disappearedGhosts.push(appearedGhosts[0]);
         /*Deleting Ghost out of the array --> not drawn anymore, "banished" */
         appearedGhosts.splice(0, 1);
 
+        //        crc2.clearRect(0, 0, canvas.width, canvas.height);
+
         window.setTimeout(drawExplosion, 300);
+        crc2.putImageData(imgData, 0, 0);
 
     }
 
@@ -128,6 +141,8 @@ namespace SpookySpook {
 
     /* Creating the explosions when ghost disappears */
     function drawExplosion(): void {
+
+
 
         let randomColor: string = "hsl(" + Math.random() * 350 + ", 100%, 50%)";
         let banishedGhostX: number = (disappearedGhosts[n].x);
@@ -139,14 +154,16 @@ namespace SpookySpook {
         /* Only 2 explosions, after that: Spawn of the Next Ghost (Function StopExplotionAndStartRespawn */
         if (explosionArray.length == 2) {
 
+
+
             window.setTimeout(StopExplotionAndStartRespawn, 800);
         }
 
         else if (disappearedGhosts.length > 9) {
 
-            
-            window.setTimeout(StartEndOfGame, 800);
-            
+
+            StartEndOfGame();
+
         }
 
         else {
@@ -161,19 +178,28 @@ namespace SpookySpook {
     /* Stop the explotion and set Timeout for the spawning another Ghost */
     function StopExplotionAndStartRespawn(): void {
 
+
+        crc2.putImageData(imgData, 0, 0);
         explosionArray.splice(0, 2);
         console.log("Geist vertrieben");
         window.setTimeout(SpawnGhost, 200);
         n += 1;
 
+
     }
 
     function StartEndOfGame(): void {
-        
+
         let winningscreen: WinningScreen = new WinningScreen;
         console.log("Spiel gewonnen");
-        
-        }
+
+        window.setTimeout(AfterGameBackground, 10000);
 
 
+    }
+    function AfterGameBackground(): void {
+
+        let backgroundDay: BackgroundDay = new BackgroundDay;
+
+    }
 }

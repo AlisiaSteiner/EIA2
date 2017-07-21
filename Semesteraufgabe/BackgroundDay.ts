@@ -99,6 +99,7 @@ namespace SpookySpook {
             crc2.arc(x + 58, y + 16, 20, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();
+            crc2.globalAlpha = 1;
 
         }
 

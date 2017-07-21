@@ -9,10 +9,18 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
+/*@media screen and (min-width:1351px){*/
 body {
 	font-family: 'Henny Penny', cursive;
-	width: 100%;
+	width: 100wh;
+	height: 100vh;
 	text-align: center;
+	background: background: #000033; 
+    background: -webkit-linear-gradient(#000033, black); 
+    background: -moz-linear-gradient(#000033, black);
+    background: linear-gradient(#000033, black);
+    color: white;
+    text-shadow: 2px 2px 30px #f5f4bd;
 }
 
 main { width: 90%;}
@@ -20,6 +28,7 @@ main { width: 90%;}
 h1 {
 	font-size: 8vh;
 	margin-bottom: 4px;
+	text-shadow: 2px 2px 30px #f5f4bd;
 }
 
 canvas {
@@ -30,6 +39,7 @@ canvas {
 #canvasDiv {
 		display: block;
 		width: 90%;
+		margin-top: 2%;
 		margin-left: auto;
 		margin-right: auto;
 		
@@ -37,8 +47,10 @@ canvas {
 
 #PlayButtons{
 	
-	border: 2px solid black;
+	border: 2px solid white;
+	border-radius: 30px;
 	height: 500px;
+	width: 15%;
 	float: right;
 	margin-left: -10px;
 	
@@ -55,8 +67,19 @@ canvas {
 		text-align: center;
 		font-size: 2em;
 		display: block;
-		margin: auto;
+		margin-top: 5%;
+		margin-left: 5%;
+		margin-right: 5%;
 		margin-bottom: 10%;
+		font-family: 'Henny Penny', cursive;
+		background-color: #000033;
+		color: white;
+		background: background: #000033; 
+    background: -webkit-linear-gradient(#000033, black); 
+    background: -moz-linear-gradient(#000033, black);
+    background: linear-gradient(#000033, black);
+    text-shadow: 2px 2px 30px #f5f4bd;
+		
 		
 
 }
@@ -66,7 +89,7 @@ canvas {
 	display: block;
 	clear: both;
 	margin-bottom: 20%;
-	margin-top: 20%;
+	margin-top: 15%;
 	width: 100%;
 	
 	
@@ -84,6 +107,7 @@ canvas {
 	
 	display: block;
 	clear: both;
+	margin-top: 30%;
 	
 	
 }
@@ -94,6 +118,49 @@ canvas {
 	width: 12vh;
 }
 
-div {
+
+
+/*@media screen and (max-width:1350px) and (min-width:0px){
+	
+	
+
+}	
+	
+#canvasdiv {
+	width: 810px;
+}	
+	
+#PlayButtons{
+	
 	text-align: center;
+	width: 800px;
+		display: inline;
+		margin: auto;
+		height: 150px;
+		
+
+}	
+
+#start {
+	width: 20%;
+	display: inline;
+	float:left;
+		margin: auto;
+		
 }
+#expel {
+	width: 20%;
+	display: inline;
+	float:left;
+	margin: auto;
+		
+}
+#banish{
+	width: 20%;
+	display: inline;
+		float:left;
+		margin: auto;
+}
+
+
+}*/
