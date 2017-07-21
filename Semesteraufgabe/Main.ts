@@ -60,6 +60,7 @@ namespace SpookySpook {
         appearedGhosts.push(normalghost);
 
         startButton.disabled = true;
+        startButton.style.backgroundColor = "grey";
         window.setTimeout(Animate, 200);
     }
 
@@ -170,6 +171,7 @@ namespace SpookySpook {
     function StartEndOfGame(): void {
         
         let winningscreen: WinningScreen = new WinningScreen;
+        console.log("Spiel gewonnen");
         
         }
 

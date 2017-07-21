@@ -37,6 +37,7 @@ var SpookySpook;
         let normalghost = new SpookySpook.NormalGhost;
         SpookySpook.appearedGhosts.push(normalghost);
         startButton.disabled = true;
+        startButton.style.backgroundColor = "grey";
         window.setTimeout(Animate, 200);
     }
     /* Spawning Ghosts - Random type of ghost */
@@ -109,6 +110,7 @@ var SpookySpook;
     }
     function StartEndOfGame() {
         let winningscreen = new SpookySpook.WinningScreen;
+        console.log("Spiel gewonnen");
     }
 })(SpookySpook || (SpookySpook = {}));
 //# sourceMappingURL=Main.js.map
