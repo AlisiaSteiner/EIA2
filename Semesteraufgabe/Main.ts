@@ -162,7 +162,7 @@ namespace SpookySpook {
 
         explosionArray.splice(0, 2);
         console.log("Geist vertrieben");
-        window.setTimeout(SpawnGhost, 400);
+        window.setTimeout(SpawnGhost, 200);
         n += 1;
 
     }

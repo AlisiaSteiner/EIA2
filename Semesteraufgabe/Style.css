@@ -1,0 +1,98 @@
+/*
+Aufgabe:    Semesteraufgabe
+Name:       Alisia Steiner
+Matrikel:   254788
+Datum:      21.07.2017
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+
+body {
+	font-family: 'Henny Penny', cursive;
+	width: 100%;
+	text-align: center;
+}
+
+main { width: 90%;}
+
+h1 {
+	font-size: 8vh;
+	margin-bottom: 4px;
+}
+
+canvas {
+		border: 5px solid black;
+		
+}
+
+#canvasDiv {
+		display: block;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		
+}
+
+#PlayButtons{
+	
+	border: 2px solid black;
+	height: 500px;
+	float: right;
+	margin-left: -10px;
+	
+	
+	
+
+}
+
+.start {
+	border: 2px solid black;
+		height: 20%;
+		width: 90%;
+		border-radius: 50%;
+		text-align: center;
+		font-size: 2em;
+		display: block;
+		margin: auto;
+		margin-bottom: 10%;
+
+}
+.expel {
+	
+	
+	display: block;
+	clear: both;
+	margin-bottom: 20%;
+	margin-top: 20%;
+	width: 100%;
+	
+	
+}
+
+#expelButton {
+	border-radius: 50%;
+	margin-bottom: -15px;
+	width: 100%;
+	height: 12vh;
+	width: 12vh;
+}
+
+.banish {
+	
+	display: block;
+	clear: both;
+	
+	
+}
+
+#banishButton {
+	border-radius: 50%;
+	height: 12vh;
+	width: 12vh;
+}
+
+div {
+	text-align: center;
+}
